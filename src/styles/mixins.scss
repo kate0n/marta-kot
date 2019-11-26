@@ -1,0 +1,31 @@
+@import "variables";
+
+@mixin title_h1 {
+  font-size: $title_h1_size;
+  line-height: $title_h1_line_height;
+}
+
+@mixin title_h2 {
+  font-size: $title_h2_size;
+  line-height: $title_h2_line_height;
+}
+
+@mixin title_h3 {
+  font-size: $title_h3_size;
+  line-height: $title_h3_line_height;
+}
+
+@mixin title_h4 {
+  font-size: $title_h4_size;
+  line-height: $title_h4_line_height;
+}
+
+@mixin links {
+  font-size: $links_size;
+  line-height: $links_line_height;
+}
+
+@mixin text {
+  font-size: $text_size;
+  line-height: $text_line_height;
+}

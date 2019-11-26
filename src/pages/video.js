@@ -1,15 +1,17 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import PageTitle from "../components/pageTitle"
+import NextPageBlock from "../components/next-page-block/next-page-block"
+import PageFooter from "../components/footer/page-footer"
 
 const VideoPage = () => (
   <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <div className="inner-container">
+      <PageTitle title="Видео" />
+      <div className="videos"></div>
+      <NextPageBlock link="/music" title="Музыка" />
+    </div>
+    <PageFooter />
   </Layout>
 )
 

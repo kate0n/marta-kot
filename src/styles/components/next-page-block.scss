@@ -1,0 +1,9 @@
+@import "../variables.scss";
+
+.next-page {
+  margin-bottom: 24px;
+  transition: $transition;
+  &:hover {
+    color: $main;
+  }
+}

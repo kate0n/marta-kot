@@ -1,0 +1,15 @@
+@import "../mixins.scss";
+
+.button {
+  @include links;
+  padding: 21px 31px 21px 27px;
+  background: #ffffff;
+  border-radius: 80px;
+  border: none;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: #01fe4c;
+  }
+}

@@ -1,0 +1,92 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.header {
+  &_container {
+    // max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include links;
+  display: flex;
+  justify-content: space-between;
+  color: $white;
+
+  &_logo-img {
+    width: 140px;
+    height: 63px;
+  }
+
+  &_menu {
+    // margin-top: -8px;
+    &_item {
+      text-align: right;
+      margin: 13px 0;
+      // height: 27px;
+
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    &_menu {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+  width: 40px;
+  height: 12px;
+  border-radius: 4px;
+
+  span {
+    position: relative;
+    display: block;
+    background: transparent;
+    transition: $transition;
+
+    &:after,
+    &:before {
+      position: absolute;
+      background: $white;
+      content: "";
+      width: 40px;
+      height: 2px;
+      border-radius: 4px;
+      transition: $transition;
+    }
+
+    &:after {
+      top: 6px;
+    }
+    &:before {
+      top: -6px;
+    }
+  }
+
+  &-active {
+    span {
+      background: transparent;
+
+      &:before {
+        width: 20px;
+        transform: rotate(45deg) translate(5px, 0px);
+      }
+
+      &:after {
+        width: 20px;
+        transform: rotate(-45deg) translate(8px, -4px);
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    display: block;
+  }
+}

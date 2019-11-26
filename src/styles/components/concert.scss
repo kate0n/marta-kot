@@ -1,0 +1,17 @@
+@import "../variables.scss";
+
+.concerts {
+  margin-bottom: 197px;
+  &_item {
+    padding-bottom: 36px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    transition: $transition;
+    &:hover {
+      color: $main;
+      .title_h2--stroke {
+        -webkit-text-stroke: 1px $main;
+      }
+    }
+  }
+}

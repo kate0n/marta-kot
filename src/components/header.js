@@ -1,42 +1,55 @@
+import React, { useState } from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import logo from "../images/logo.svg"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+const menuItems = [
+  { name: "Концерты", link: "/concert" },
+  { name: "Видео", link: "/video" },
+  { name: "Музыка", link: "/music" },
+  { name: "Контакты", link: "/contacts" },
+]
+
+const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const togglMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  return (
     <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+      className="header_container"
+      style={{ backgroundImage: 'url("../../static/images/main.png")' }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+      <header className="header">
+        <Link to="/" className="header_logo">
+          <img src={logo} alt="logo" className="header_logo-img" />
         </Link>
-      </h1>
+        <nav>
+          <ul className="header_menu">
+            {menuItems.map((menuItem, index) => (
+              <li className="header_menu_item">
+                <Link to={menuItem.link} key={index}>
+                  {menuItem.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div
+            onClick={togglMobileMenu}
+            className={
+              isMobileMenuOpen
+                ? "mobile-menu mobile-menu-active"
+                : "mobile-menu"
+            }
+          >
+            <span></span>
+          </div>
+        </nav>
+      </header>
     </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+  )
 }
 
 export default Header

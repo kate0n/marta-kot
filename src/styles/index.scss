@@ -1,0 +1,79 @@
+@import "utils/normalize";
+@import "utils/reset";
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+@font-face {
+  font-family: "EDA TV";
+  src: url("../../static/fonts/gt-walsheim-medium.ttf") format("opentype");
+}
+
+body,
+html {
+  overflow: auto;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: GT Walsheim Pro;
+  font-weight: 600;
+  color: $white;
+  background: url("../../static//images//main.png") 100% 100% no-repeat;
+  // background-position: center;
+  background-size: cover;
+}
+
+.outer-container {
+  margin: 48px 56px 56px 56px;
+}
+
+.inner-container {
+  max-width: 928px;
+  margin: 0 auto;
+}
+
+.title_h1 {
+  font-size: $title_h1_size;
+  line-height: $title_h1_line_height;
+}
+
+.title_h2 {
+  font-size: $title_h2_size;
+  line-height: $title_h2_line_height;
+
+  &--stroke {
+    -webkit-text-stroke: 1px $white;
+    color: transparent;
+    transition: $transition;
+  }
+}
+
+.text {
+  font-size: $text_size;
+  line-height: $text_line_height;
+}
+
+.links {
+  font-size: $links_size;
+  line-height: $links_line_height;
+}
+
+.page-title {
+  max-width: 360px;
+  padding: 24px 28px 30px 36px;
+  margin-bottom: 92px;
+  background: $main;
+  color: $black;
+  transform: skewY(-5deg);
+}
+
+@import "components/header";
+@import "components/footer";
+@import "components/banner";
+@import "components/button";
+@import "components/concert";
+@import "components/next-page-block";

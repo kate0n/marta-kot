@@ -1,0 +1,54 @@
+@import "../variables.scss";
+
+@mixin footer-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: $transition;
+}
+
+.footer {
+  @include footer-base;
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 152px;
+
+  &_social-buttons {
+    display: flex;
+
+    .social_button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      margin-right: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        border-color: $main;
+      }
+    }
+  }
+}
+
+.page-footer {
+  @include footer-base;
+  width: 100%;
+
+  &_copyright {
+    height: 46px;
+    width: 100%;
+    max-width: 928px;
+    padding: 13px 36px;
+
+    a:hover {
+      color: $main;
+    }
+  }
+}
+
+.play-music-button {
+}

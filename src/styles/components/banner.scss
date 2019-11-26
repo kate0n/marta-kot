@@ -1,0 +1,16 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.banner {
+  height: 96px;
+  padding: 32px 0;
+  background-color: $main;
+  color: $black;
+  white-space: nowrap;
+  // position: fixed;
+  // bottom: 0;
+  // width: 100%;
+  &_text {
+    @include title_h4;
+  }
+}
