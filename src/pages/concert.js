@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import PageTitle from "../components/pageTitle"
+import PageTitle from "../components/page-title/page-title"
 import NextPageBlock from "../components/next-page-block/next-page-block"
 import PageFooter from "../components/footer/page-footer"
 

@@ -1,11 +1,11 @@
-@import "../mixins.scss";
+@import "../variables.scss";
 
 .button {
-  @include links;
   padding: 21px 31px 21px 27px;
   background: #ffffff;
   border-radius: 80px;
   border: none;
+  color: $button-text;
   cursor: pointer;
   transition: $transition;
 

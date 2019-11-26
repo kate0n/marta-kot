@@ -3,6 +3,10 @@
 .next-page {
   margin-bottom: 24px;
   transition: $transition;
+
+  p {
+    color: $gray;
+  }
   &:hover {
     color: $main;
   }

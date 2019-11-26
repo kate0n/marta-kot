@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import PlayBtn from "../images/play_btn.svg"
+import PlayBtn from "../../images/play_btn.svg"
 
 const PlayMusicButton = () => {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false)

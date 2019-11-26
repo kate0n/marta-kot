@@ -1,5 +1,5 @@
 import React from "react"
-import PlayMusicButton from "../playMusicButton"
+import PlayMusicButton from "../play-music-button/play-music-button"
 import IconYoutube from "../../images/Youtube.svg"
 import IconFacebook from "../../images/facebook.svg"
 import IconInstagram from "../../images/insta.svg"

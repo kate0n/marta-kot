@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import logo from "../images/logo.svg"
+import logo from "../../images/logo.svg"
 
 const menuItems = [
   { name: "Концерты", link: "/concert" },

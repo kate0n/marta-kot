@@ -15,11 +15,6 @@
   line-height: $title_h3_line_height;
 }
 
-@mixin title_h4 {
-  font-size: $title_h4_size;
-  line-height: $title_h4_line_height;
-}
-
 @mixin links {
   font-size: $links_size;
   line-height: $links_line_height;
