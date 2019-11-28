@@ -1,5 +1,7 @@
 import React, { useState } from "react"
+import { Location } from "@reach/router"
 import { Link } from "gatsby"
+import PlayMusicButton from "../../components/play-music-button/play-music-button"
 import logo from "../../images/logo.svg"
 
 const menuItems = [
@@ -9,7 +11,7 @@ const menuItems = [
   { name: "Контакты", link: "/contacts" },
 ]
 
-const Header = () => {
+const Header = props => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const togglMobileMenu = () => {
@@ -17,38 +19,65 @@ const Header = () => {
   }
 
   return (
-    <div
-      className="header_container"
-      style={{ backgroundImage: 'url("../../static/images/main.png")' }}
-    >
-      <header className="header">
-        <Link to="/" className="header_logo">
-          <img src={logo} alt="logo" className="header_logo-img" />
-        </Link>
-        <nav>
-          <ul className="header_menu">
-            {menuItems.map((menuItem, index) => (
-              <li className="header_menu_item">
-                <Link to={menuItem.link} key={index}>
-                  {menuItem.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
+    <Location>
+      {({ location }) => (
+        <div className="header_container">
+          <header className="header">
+            <div className="header_top">
+              <Link to="/" className="header_logo">
+                <img src={logo} alt="logo" className="header_logo-img" />
+              </Link>
+              <nav className="header_menu">
+                <ul>
+                  {menuItems.map((menuItem, index) => (
+                    <li
+                      className={
+                        location.pathname === menuItem.link
+                          ? "header_menu-item header_menu-item--active links"
+                          : "header_menu-item links"
+                      }
+                      key={index}
+                    >
+                      <Link to={menuItem.link}>{menuItem.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              {/* бургер */}
+              <div
+                onClick={togglMobileMenu}
+                className={
+                  isMobileMenuOpen
+                    ? "mobile-menu_burger mobile-menu_burger--open"
+                    : "mobile-menu_burger"
+                }
+              >
+                <span></span>
+              </div>
+            </div>
+          </header>
+          {/* mobile nav */}
           <div
-            onClick={togglMobileMenu}
             className={
-              isMobileMenuOpen
-                ? "mobile-menu mobile-menu-active"
-                : "mobile-menu"
+              isMobileMenuOpen ? "mobile-menu mobile-menu--open" : "mobile-menu"
             }
           >
-            <span></span>
+            <nav className="mobile-menu_nav">
+              <ul>
+                {menuItems.map((menuItem, index) => (
+                  <li className="header_menu-item" key={index}>
+                    <Link to={menuItem.link} onClick={togglMobileMenu}>
+                      {menuItem.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <PlayMusicButton />
           </div>
-        </nav>
-      </header>
-    </div>
+        </div>
+      )}
+    </Location>
   )
 }
 

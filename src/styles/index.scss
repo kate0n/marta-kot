@@ -1,7 +1,6 @@
 @import "utils/normalize";
 @import "utils/reset";
 @import "variables";
-@import "mixins";
 
 * {
   box-sizing: border-box;
@@ -22,16 +21,22 @@ html {
   font-family: GT Walsheim Pro;
   font-weight: 600;
   color: $white;
-  background: url("../../static//images//main.png") 100% 100% no-repeat;
-  // background-position: center;
+  background: url("../images//main.png") no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .outer-container {
   margin: 48px 56px 56px 56px;
+
+  @media (max-width: 768px) {
+    margin: 24px;
+  }
 }
 
 .inner-container {
+  width: 100%;
   max-width: 928px;
   margin: 0 auto;
 }
@@ -39,6 +44,11 @@ html {
 .title_h1 {
   font-size: $title_h1_size;
   line-height: $title_h1_line_height;
+
+  @media (max-width: $breakpoint) {
+    font-size: $title_h2_size;
+    line-height: $title_h2_line_height;
+  }
 }
 
 .title_h2 {
@@ -50,16 +60,26 @@ html {
     color: transparent;
     transition: $transition;
   }
+  @media (max-width: $breakpoint) {
+    font-size: $title_h3_size;
+    line-height: $title_h3_line_height;
+  }
+}
+
+.title_h3 {
+  font-size: $title_h3_size;
+  line-height: $title_h3_line_height;
+
+  @media (max-width: $breakpoint) {
+    font-size: $title_h4_size;
+    line-height: $title_h4_line_height;
+  }
 }
 
 .title_h4 {
   font-size: $title_h4_size;
   line-height: $title_h4_line_height;
   transition: $transition;
-
-  &:hover {
-    color: $main;
-  }
 }
 
 .text {
@@ -74,17 +94,40 @@ html {
 
 .page-title {
   max-width: 360px;
-  padding: 24px 28px 30px 36px;
+  padding: 20px 28px 30px 36px;
   margin-bottom: 92px;
   background: $main;
   color: $black;
   transform: skewY(-5deg);
+
+  &_text {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  @media (max-width: $breakpoint) {
+    height: 88px;
+    padding-bottom: 0 21px;
+    max-width: 236px;
+    margin-top: 151px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 30px 0;
+
+    &_text {
+      font-size: 37px;
+      line-height: 37px;
+    }
+  }
 }
 
 @import "components/header";
 @import "components/footer";
 @import "components/banner";
 @import "components/button";
+@import "components/play-music-button";
 @import "components/next-page-block";
 @import "components/concert";
+@import "components/music";
 @import "components/video";
+@import "components/contacts";

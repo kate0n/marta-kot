@@ -4,41 +4,66 @@ import PageTitle from "../components/page-title/page-title"
 import NextPageBlock from "../components/next-page-block/next-page-block"
 import PageFooter from "../components/footer/page-footer"
 
-const concertPage = [
-  {
-    location: "«Флакон», МосВегФест 2019",
-    city: "Москва",
-    date: "22 октября 2019",
-    link: "",
-  },
-  {
-    location: "ВТБ Арена, Динамо",
-    city: "Москва",
-    date: "26 октября 2019",
-    link: "",
-  },
-  {
-    location: "RestoClub",
-    city: "Иваново",
-    date: "6 ноября 2019",
-    link: "",
-  },
-]
+const concertPage = {
+  background: "",
+  concerts: [
+    {
+      visibly: true,
+      name: "",
+      description: "",
+      city: "Москва",
+      address: "«Флакон», МосВегФест 2019",
+      date: "22 октября 2019",
+      url: "",
+    },
+    {
+      visibly: true,
+      name: "",
+      description: "",
+      city: "Москва",
+      address: "«Флакон», МосВегФест 2019",
+      date: "22 октября 2019",
+      url: "",
+    },
+    {
+      visibly: true,
+      name: "",
+      description: "",
+      city: "Москва",
+      address: "«Флакон», МосВегФест 2019",
+      date: "22 октября 2019",
+      url: "",
+    },
+    {
+      visibly: true,
+      name: "",
+      description: "",
+      city: "Москва",
+      address: "«Флакон», МосВегФест 2019",
+      date: "22 октября 2019",
+      url: "",
+    },
+  ],
+  visibly: true,
+}
 
 const ConcertPage = () => (
   <Layout>
     <div className="inner-container">
       <PageTitle title="Концерты" />
       <div className="concerts">
-        {concertPage.map((concert, index) => (
-          <a href={concert.link} target="_blank" rel="noopener">
-            <p className="concerts_item" key={index}>
-              <p className="links">{concert.location}</p>
-              <h2 className="title_h2">{concert.city}</h2>
-              <h2 className="title_h2 title_h2--stroke">{concert.date}</h2>
-            </p>
-          </a>
-        ))}
+        {concertPage.concerts.map(
+          (concert, index) =>
+            concert.visibly && (
+              <a href={concert.url} target="_blank" rel="noopener noreferrer">
+                <div className="concerts_item" key={index}>
+                  <p className="links">{concert.address}</p>
+                  <h2 className="title_h2">{concert.city}</h2>
+                  <h2 className="title_h2 title_h2--stroke">{concert.date}</h2>
+                </div>
+              </a>
+            )
+        )}
       </div>
       <NextPageBlock link="/video" title="Видео" />
     </div>

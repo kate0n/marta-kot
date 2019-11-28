@@ -1,0 +1,22 @@
+@import "../variables.scss";
+
+.music-btn {
+  position: relative;
+
+  &-toogler {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+  @media (max-width: $breakpoint) {
+    display: none;
+  }
+}
+
+.music-btn--mobile {
+  position: relative;
+}

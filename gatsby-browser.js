@@ -5,4 +5,11 @@
  */
 
 // You can delete this file if you're not using it
-import "./src/styles/index.scss";
+import "./src/styles/index.scss"
+
+import React from "react"
+import { MusicPlayerProvider } from "./src/context/MusicPlayerContext"
+
+export const wrapRootElement = ({ element }) => (
+  <MusicPlayerProvider>{element}</MusicPlayerProvider>
+)

@@ -9,7 +9,20 @@
   cursor: pointer;
   transition: $transition;
 
+  &_wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 117px;
+  }
+
   &:hover {
     background: #01fe4c;
+  }
+
+  @media (max-width: $breakpoint) {
+    &_wrapper {
+      margin-bottom: 93px;
+    }
   }
 }

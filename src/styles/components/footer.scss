@@ -18,19 +18,12 @@
     display: flex;
 
     .social_button {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.3);
       margin-right: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &:hover {
-        border-color: $main;
-      }
     }
+  }
+  @media (max-width: $breakpoint) {
+    justify-content: center;
+    bottom: 88px;
   }
 }
 
@@ -46,6 +39,16 @@
 
     a:hover {
       color: $main;
+    }
+  }
+
+  @media (max-width: $breakpoint) {
+    &_share {
+      display: none;
+    }
+
+    &_copyright {
+      padding: 13px 0;
     }
   }
 }

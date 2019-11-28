@@ -1,0 +1,72 @@
+.music {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 13px;
+  @media (max-width: $breakpoint) {
+    margin-bottom: 32px;
+  }
+}
+
+.single-card {
+  width: 288px;
+  height: 288px;
+  margin-bottom: 20px;
+  margin: 0 -16px 20px -16px;
+
+  position: relative;
+  cursor: pointer;
+  // background: purple;
+
+  &-wrapper {
+    margin: 0 16px 81px 16px;
+
+    &:hover {
+      color: $main;
+    }
+  }
+
+  &-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+  }
+
+  &_overlay {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 288px;
+    height: 288px;
+    transition: $transition;
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      0deg,
+      rgba(1, 254, 76, 0.4),
+      rgba(1, 254, 76, 0.4)
+    );
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: $breakpoint) {
+    &-wrapper {
+      margin: 0 16px 49px 16px;
+    }
+  }
+}

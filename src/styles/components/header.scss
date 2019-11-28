@@ -1,17 +1,12 @@
-@import "../mixins.scss";
 @import "../variables.scss";
 
 .header {
-  &_container {
-    // max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  @include links;
-  display: flex;
-  justify-content: space-between;
   color: $white;
+
+  &_top {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &_logo-img {
     width: 140px;
@@ -19,9 +14,9 @@
   }
 
   &_menu {
-    // margin-top: -8px;
-    &_item {
-      text-align: right;
+    text-align: right;
+
+    &-item {
       margin: 13px 0;
       // height: 27px;
 
@@ -29,64 +24,123 @@
         color: $main;
       }
     }
+
+    &-item--active {
+      color: $main;
+    }
   }
 
-  @media (max-width: 420px) {
+  &_menu-mobile {
+    display: none;
+  }
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 59px;
+
     &_menu {
       display: none;
+    }
+
+    &_menu-item {
+      margin: 21px 0;
+    }
+
+    &_top {
+      align-items: center;
+      position: fixed;
+      z-index: 12;
+      width: 100%;
+      // background: #0e0e0e;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 24px 0 24px;
     }
   }
 }
 
 .mobile-menu {
   display: none;
-  cursor: pointer;
-  width: 40px;
-  height: 12px;
-  border-radius: 4px;
+  position: absolute;
+  background: #0e0e0e;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  padding: 0 24px;
+  padding-top: 151px;
 
-  span {
-    position: relative;
+  &--open {
     display: block;
-    background: transparent;
-    transition: $transition;
-
-    &:after,
-    &:before {
-      position: absolute;
-      background: $white;
-      content: "";
-      width: 40px;
-      height: 2px;
-      border-radius: 4px;
-      transition: $transition;
-    }
-
-    &:after {
-      top: 6px;
-    }
-    &:before {
-      top: -6px;
-    }
   }
 
-  &-active {
-    span {
-      background: transparent;
+  &_nav {
+    display: block;
+    color: $main;
+    text-align: left;
+    font-size: $title_h3_size;
+    line-height: $title_h3_line_height;
+  }
 
+  &_burger {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 12px;
+    border-radius: 4px;
+
+    span {
+      position: relative;
+      display: block;
+      background: transparent;
+      transition: $transition;
+
+      &:after,
       &:before {
-        width: 20px;
-        transform: rotate(45deg) translate(5px, 0px);
+        position: absolute;
+        background: $white;
+        content: "";
+        width: 40px;
+        height: 2px;
+        border-radius: 4px;
+        transition: $transition;
       }
 
       &:after {
-        width: 20px;
-        transform: rotate(-45deg) translate(8px, -4px);
+        top: 8px;
+      }
+      &:before {
+        top: 0;
       }
     }
-  }
 
-  @media (max-width: 420px) {
-    display: block;
+    &--open {
+      width: 48px;
+      height: 48px;
+      border: 1px solid white;
+      border-radius: 50%;
+      position: relative;
+      span {
+        position: absolute;
+        top: 43%;
+        left: 17%;
+        background: transparent;
+
+        &:before {
+          width: 20px;
+          transform: rotate(45deg) translate(5px, -2px);
+        }
+
+        &:after {
+          width: 20px;
+          transform: rotate(-45deg) translate(8px, 0px);
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint) {
+      display: block;
+    }
   }
 }
