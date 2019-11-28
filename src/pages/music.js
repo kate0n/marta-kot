@@ -84,7 +84,7 @@ const MusicPage = () => {
               title="Больше музыки"
               moreUrl={musicPage.moreMusicUrl}
             />
-            <NextPageBlock moreUrl="/contacts" title="Контакты" />
+            <NextPageBlock link="/contacts" title="Контакты" />
           </div>
           <PageFooter />
         </Layout>

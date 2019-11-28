@@ -64,7 +64,7 @@ const VideoPage = () => {
           ))}
         </div>
         <ButtonMore title="Больше видео" moreUrl={videoPage.moreVideosUrl} />
-        <NextPageBlock moreUrl="/music" title="Музыка" />
+        <NextPageBlock link="/music" title="Музыка" />
       </div>
       <PageFooter />
     </Layout>
