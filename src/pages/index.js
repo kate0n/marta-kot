@@ -4,6 +4,7 @@ import { FullsizePicture } from "react-responsive-picture"
 import Layout from "../components/layout"
 import Footer from "../components/footer/footer"
 import Banner from "../components/banner/banner"
+import MusicPlayerContext from "../context/MusicPlayerContext"
 
 // temporary
 import IconYoutube from "../images/Youtube.svg"
@@ -27,33 +28,7 @@ const homePage = {
     visibly: true,
   },
 }
-
-// пока не разобралась как делать <FullsizePicture /> фоновым изображением, у него position: absolute и др.элементов не видно
 const IndexPage = () => (
-  // <div style={{ height: "864px" }}>
-  //   <FullsizePicture
-  //     sources={[
-  //       {
-  //         srcSet: "../images/main.png",
-  //         media: "(max-width: 320px)",
-  //       },
-  //       {
-  //         srcSet: "../images/main.png",
-  //         media: "(max-width: 768px)",
-  //       },
-  //       {
-  //         srcSet: "../images/main.png",
-  //         media: "(max-width: 1024px)",
-  //       },
-  //       {
-  //         srcSet: "../images/main.png",
-  //         media: "(max-width: 1440px)",
-  //       },
-  //       {
-  //         srcSet: "../images/main.png",
-  //       },
-  //     ]}
-  //   >
   <>
     <Layout>
       <Footer {...homePage} />
@@ -68,3 +43,28 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+// <div style={{ height: "864px" }}>
+//   <FullsizePicture
+//     sources={[
+//       {
+//         srcSet: "../images/main.png",
+//         media: "(max-width: 320px)",
+//       },
+//       {
+//         srcSet: "../images/main.png",
+//         media: "(max-width: 768px)",
+//       },
+//       {
+//         srcSet: "../images/main.png",
+//         media: "(max-width: 1024px)",
+//       },
+//       {
+//         srcSet: "../images/main.png",
+//         media: "(max-width: 1440px)",
+//       },
+//       {
+//         srcSet: "../images/main.png",
+//       },
+//     ]}
+//   >

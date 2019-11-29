@@ -12,14 +12,10 @@ const SigleCard = ({
 }) => {
   return (
     visibly && (
-      <div className="single-card-wrapper">
+      <div className="single-card_wrapper">
         <div className="single-card">
-          {/* single image */}
-          <div className="single-card-img-wrapper">
-            <img src={image} alt="" className="single-card-img" />
-          </div>
+          <img src={image} alt="" className="single-card-img" />
 
-          {/* overlay with play btn */}
           <div
             className="single-card_overlay"
             onClick={isSinglePlaying ? pauseSingle : playSingle}

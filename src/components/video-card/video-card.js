@@ -26,8 +26,8 @@ const VideoCard = ({ visibly, preview, name, url }) => {
   }
 
   const opts = {
-    height: "264",
-    width: "448",
+    height: "100%",
+    width: "100%",
     playerVars: {
       autoplay: 1,
     },
@@ -46,12 +46,13 @@ const VideoCard = ({ visibly, preview, name, url }) => {
           onMouseLeave={pausePreview}
         >
           {youTube.isPlaying && (
-            <div onClick={playYouTubeVideo}>
+            <div onClick={playYouTubeVideo} style={{ height: "100%" }}>
               <YouTube
                 videoId={url}
                 opts={opts}
                 onReady={onReady}
                 onEnd={stopYouTubeVideo}
+                containerClassName="video_card_youtube"
               />
             </div>
           )}
@@ -60,7 +61,7 @@ const VideoCard = ({ visibly, preview, name, url }) => {
               ref={videoEl}
               preload="auto"
               loop="loop"
-              className="video_card-video"
+              className="video_card_preview"
             >
               <source src={preview.mp4} type="video/mp4" />
               <source src={preview.ogg} type="video/ogg" />

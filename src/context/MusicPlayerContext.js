@@ -12,43 +12,46 @@ const MusicPlayerProvider = ({ children }) => {
   const [singlePlayer, setSinglePlayer] = useState({
     isSinglePlaying: false,
     single: "",
+    currentTime: 0,
   })
 
-  const playTrack = (audioEl, isSingle) => {
+  const audioEl = document.getElementById("audio")
+
+  const getTrack = track => {
     setTrackPlayer({
       ...trackPlayer,
-      // если playTrack вызывается при клике на карточку сингла isTrackPlaying остается false
-      isTrackPlaying: isSingle ? false : true,
+      track: track,
     })
-    audioEl.current.play()
-    console.log(
-      "playTrack() invoked, isTrackPlaying:",
-      { isTrackPlaying: isSingle ? false : true },
-      "with audio ref:",
-      audioEl.current
-    )
   }
 
-  const pauseTrack = audioEl => {
+  const playTrack = () => {
+    debugger
+    setTrackPlayer({
+      ...trackPlayer,
+      // если playTrack вызывается для продолжения сингла
+      isTrackPlaying: singlePlayer.isSinglePlaying ? false : true,
+    })
+    console.log("playTrack()", document.getElementById("audio"))
+    document.getElementById("audio").currentTime = trackPlayer.currentTime
+    document.getElementById("audio").play()
+  }
+
+  const pauseTrack = () => {
+    // debugger
     setTrackPlayer({
       ...trackPlayer,
       isTrackPlaying: false,
-      currentTime: audioEl.current.currentTime,
+      currentTime: document.getElementById("audio").currentTime,
     })
     setSinglePlayer({
       ...singlePlayer,
       isSinglePlaying: false,
     })
-    audioEl.current.pause()
-    console.log(
-      "pauseTrack() invoked, isTrackPlaying:",
-      trackPlayer.isTrackPlaying,
-      "audioEl.current.currentTime",
-      audioEl.current.currentTime
-    )
+    document.getElementById("audio").pause()
   }
 
   const playSingle = single => {
+    debugger
     setTrackPlayer({
       ...trackPlayer,
       isTrackPlaying: false,
@@ -57,22 +60,30 @@ const MusicPlayerProvider = ({ children }) => {
       isSinglePlaying: true,
       single: single,
     })
+    document.getElementById("audio").currentTime = singlePlayer.currentTime
+    document.getElementById("audio").play()
   }
 
   const pauseSingle = () => {
+    // debugger
     setSinglePlayer({
       ...singlePlayer,
       isSinglePlaying: false,
+      currentTime: document.getElementById("audio").currentTime,
     })
+    document.getElementById("audio").pause()
   }
 
   return (
     <MusicPlayerContext.Provider
       value={{
+        // for track,
+        getTrack: getTrack,
         track: trackPlayer.track,
         isTrackPlaying: trackPlayer.isTrackPlaying,
         playTrack: playTrack,
         pauseTrack: pauseTrack,
+        // for single,
         isSinglePlaying: singlePlayer.isSinglePlaying,
         single: singlePlayer.single,
         playSingle: playSingle,

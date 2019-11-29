@@ -73,7 +73,9 @@ const Header = props => {
                 ))}
               </ul>
             </nav>
-            <PlayMusicButton />
+            <PlayMusicButton
+              className={isMobileMenuOpen ? "music-btn--mobile" : ""}
+            />
           </div>
         </div>
       )}

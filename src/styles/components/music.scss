@@ -3,22 +3,28 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 13px;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
   @media (max-width: $breakpoint) {
     margin-bottom: 32px;
   }
 }
 
 .single-card {
+  position: relative;
   width: 288px;
-  height: 288px;
-  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer;
   margin: 0 -16px 20px -16px;
 
-  position: relative;
-  cursor: pointer;
-  // background: purple;
+  &:before {
+    content: "";
+    padding-top: 100%;
+    display: block;
+  }
 
-  &-wrapper {
+  &_wrapper {
     margin: 0 16px 81px 16px;
 
     &:hover {
@@ -26,47 +32,53 @@
     }
   }
 
-  &-img-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
   &-img {
+    height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
+    z-index: 1;
   }
 
   &_overlay {
-    z-index: 10;
     position: absolute;
     top: 0;
+    left: 0;
     bottom: 0;
-    width: 288px;
-    height: 288px;
-    transition: $transition;
-    transition: all 0.4s ease-in-out;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 12;
     background: linear-gradient(
       0deg,
       rgba(1, 254, 76, 0.4),
       rgba(1, 254, 76, 0.4)
     );
     opacity: 0;
+    transition: $transition;
 
     &:hover {
       opacity: 1;
     }
   }
 
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 0 20px 0;
+    &_wrapper {
+      width: 100%;
+      margin: 0 0 81px 0;
+    }
+  }
+
   @media (max-width: $breakpoint) {
+    width: 100%;
+
     &-wrapper {
-      margin: 0 16px 49px 16px;
+      margin: 0 0 49px 0;
     }
   }
 }

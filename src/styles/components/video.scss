@@ -17,11 +17,12 @@
   }
 
   &_card {
+    height: 100%;
     margin-bottom: 17px;
     position: relative;
     cursor: pointer;
 
-    &-video {
+    &_preview {
       width: 100%;
       height: 264px;
       object-fit: cover;
@@ -56,13 +57,17 @@
         );
       }
     }
+
+    &_youtube {
+      height: 100%;
+    }
   }
 
   @media (max-width: $breakpoint) {
     margin: 0 0 64px 0;
     // justify-content: center;
 
-    &_card-video {
+    &_card_preview {
       height: 176px;
     }
 
@@ -77,22 +82,3 @@
     }
   }
 }
-
-// span {
-//   position: absolute;
-
-//   top: 43%;
-
-//   left: 17%;
-// }
-
-// width: 48px;
-
-// height: 48px;
-
-// border: 1px solid
-// white;
-
-// border-radius: 50%;
-
-// position: relative;

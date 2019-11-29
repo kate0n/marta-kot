@@ -19,6 +19,12 @@
 
     .social_button {
       margin-right: 8px;
+      transition: 0.1s all;
+
+      &:hover {
+        filter: invert(73%) sepia(97%) saturate(1938%) hue-rotate(81deg)
+          brightness(201%) contrast(109%);
+      }
     }
   }
   @media (max-width: $breakpoint) {
@@ -39,6 +45,18 @@
 
     a:hover {
       color: $main;
+    }
+  }
+
+  &_share {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: 0.2s all;
+
+    &:hover {
+      filter: invert(73%) sepia(97%) saturate(1938%) hue-rotate(81deg)
+        brightness(201%) contrast(109%);
     }
   }
 

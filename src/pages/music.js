@@ -5,7 +5,6 @@ import SingleCard from "../components/single-card/single-card"
 import ButtonMore from "../components/button-more/button-more"
 import PageFooter from "../components/footer/page-footer"
 import MusicPlayerContext from "../context/MusicPlayerContext"
-
 import SingleImage from "../images/single_image.png"
 import NextPageBlock from "../components/next-page-block/next-page-block"
 

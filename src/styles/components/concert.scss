@@ -14,4 +14,8 @@
       }
     }
   }
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 92px;
+  }
 }

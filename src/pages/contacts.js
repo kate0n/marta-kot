@@ -27,9 +27,11 @@ const ContactsPage = () => (
     <div className="inner-container">
       <PageTitle title="Контакты" />
       <div className="contacts">
-        <h3 className="contacts_mail title_h3">pr@martakot.com</h3>
+        <h3 className="contacts_mail title_h3">
+          <a href={`mailto:${contactsPage.email}`}>{contactsPage.email}</a>
+        </h3>
         <h2 className="contacts_tel title_h2">
-          <a href={`tel:${contactsPage.phone}`}>+7 903 158-68-29</a>
+          <a href={`tel:${contactsPage.phone}`}>{contactsPage.phone}</a>
         </h2>
       </div>
       <ul className="contacts_social-buttons footer_social-buttons">

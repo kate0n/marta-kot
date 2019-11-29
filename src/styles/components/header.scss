@@ -37,6 +37,11 @@
   @media (max-width: $breakpoint) {
     margin-bottom: 59px;
 
+    &_logo-img {
+      width: 112px;
+      height: 51px;
+    }
+
     &_menu {
       display: none;
     }
@@ -48,7 +53,7 @@
     &_top {
       align-items: center;
       position: fixed;
-      z-index: 12;
+      z-index: 14;
       width: 100%;
       // background: #0e0e0e;
       top: 0;
@@ -61,18 +66,25 @@
 
 .mobile-menu {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
   position: absolute;
   background: #0e0e0e;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 11;
+  z-index: 13;
   padding: 0 24px;
   padding-top: 151px;
 
+  @media (min-width: $breakpoint) {
+    display: none !important;
+  }
+
   &--open {
-    display: block;
+    display: flex;
   }
 
   &_nav {
@@ -121,6 +133,7 @@
       border: 1px solid white;
       border-radius: 50%;
       position: relative;
+
       span {
         position: absolute;
         top: 43%;

@@ -3,20 +3,28 @@
 .music-btn {
   position: relative;
 
-  &-toogler {
-    position: absolute;
-    display: block;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-  }
-
   @media (max-width: $breakpoint) {
     display: none;
   }
 }
 
+.toogler {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
 .music-btn--mobile {
-  position: relative;
+  display: inline-block;
+
+  position: absolute;
+
+  bottom: 34px;
+
+  .music-btn-round {
+    position: relative;
+  }
 }
