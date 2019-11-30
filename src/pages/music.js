@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
 import SingleCard from "../components/single-card/single-card"
@@ -52,43 +52,37 @@ const musicPage = {
 }
 
 const MusicPage = () => {
+  const { isSinglePlaying, single, playSingle, pauseSingle } = useContext(
+    MusicPlayerContext
+  )
   return (
-    <MusicPlayerContext.Consumer>
-      {context => (
-        <Layout>
-          <div className="inner-container">
-            <PageTitle title="Музыка" />
-            <div className="music">
-              {musicPage.singles.map((single, index) => (
-                <SingleCard
-                  {...single}
-                  // чтобы иконка play/pause менялась только на карточке с выбранным синглом
-                  isSinglePlaying={
-                    single.track === context.single
-                      ? context.isSinglePlaying
-                      : false
-                  }
-                  // вызываем меняем playSingle():
-                  //isSinglePlaying на true, isTrackPlaying на false (если играл дефолтный трек)
-                  // в play-music-button.js вызывается ф-я playTrack с ref и флагом true, о
-                  // значающим, что надо включить сингл, а не дефолтный трек
-                  playSingle={() => context.playSingle(single.track)}
-                  // меняем isSinglePlaying на false, меняем isTrackPlaying на false (если играл дефолтный трек)
-                  pauseSingle={() => context.pauseSingle()}
-                  key={index}
-                />
-              ))}
-            </div>
-            <ButtonMore
-              title="Больше музыки"
-              moreUrl={musicPage.moreMusicUrl}
+    <Layout>
+      <div className="inner-container">
+        <PageTitle title="Музыка" />
+        <div className="music">
+          {musicPage.singles.map((singleItem, index) => (
+            <SingleCard
+              {...singleItem}
+              // чтобы иконка play/pause менялась только на карточке с выбранным синглом
+              isSinglePlaying={
+                singleItem.track === single ? isSinglePlaying : false
+              }
+              // вызываем меняем playSingle():
+              //isSinglePlaying на true, isTrackPlaying на false (если играл дефолтный трек)
+              // в play-music-button.js вызывается ф-я playTrack с ref и флагом true, о
+              // значающим, что надо включить сингл, а не дефолтный трек
+              playSingle={() => playSingle(single.track)}
+              // меняем isSinglePlaying на false, меняем isTrackPlaying на false (если играл дефолтный трек)
+              pauseSingle={() => pauseSingle()}
+              key={index}
             />
-            <NextPageBlock link="/contacts" title="Контакты" />
-          </div>
-          <PageFooter />
-        </Layout>
-      )}
-    </MusicPlayerContext.Consumer>
+          ))}
+        </div>
+        <ButtonMore title="Больше музыки" moreUrl={musicPage.moreMusicUrl} />
+        <NextPageBlock link="/contacts" title="Контакты" />
+      </div>
+      <PageFooter />
+    </Layout>
   )
 }
 

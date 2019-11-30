@@ -1,19 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import Header from "./header/header"
 import AudioPortal from "./play-music-button/audio-portal"
 import MusicPlayerContext from "../context/MusicPlayerContext"
 
 const Layout = ({ children }) => {
+  const { track, single } = useContext(MusicPlayerContext)
   return (
-    <MusicPlayerContext.Consumer>
-      {context => (
-        <div className="outer-container">
-          <Header />
-          <main>{children}</main>
-          <AudioPortal track={context.single || context.track} />
-        </div>
-      )}
-    </MusicPlayerContext.Consumer>
+    <div className="outer-container">
+      <Header />
+      <main>{children}</main>
+      <AudioPortal track={single || track} />
+    </div>
   )
 }
 
