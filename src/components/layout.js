@@ -6,10 +6,12 @@ import MusicPlayerContext from "../context/MusicPlayerContext"
 const Layout = ({ children }) => {
   const { track, single } = useContext(MusicPlayerContext)
   return (
-    <div className="outer-container">
-      <Header />
-      <main>{children}</main>
-      <AudioPortal track={single || track} />
+    <div className="app">
+      <div className="outer-container">
+        <Header />
+        <main>{children}</main>
+        <AudioPortal track={single || track} />
+      </div>
     </div>
   )
 }
