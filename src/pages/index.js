@@ -4,16 +4,20 @@ import { FullsizePicture } from "react-responsive-picture"
 import Layout from "../components/layout"
 import Footer from "../components/footer/footer"
 import Banner from "../components/banner/banner"
-import MusicPlayerContext from "../context/MusicPlayerContext"
-
 // temporary
 import IconYoutube from "../images/Youtube.svg"
 import IconFacebook from "../images/facebook.svg"
 import IconInstagram from "../images/insta.svg"
 import IconVK from "../images/vk.svg"
 import IconOK from "../images/ok.svg"
+
 const homePage = {
-  background: "",
+  background: {
+    xs: "../images/main.png",
+    sm: "../images/main.png",
+    md: "../images/main.png",
+    lg: "../images/main.png",
+  },
   socialList: [
     { name: "YouTube", image: IconYoutube, url: "YouTube" },
     { name: "Facebook", image: IconFacebook, url: "Facebook" },
@@ -21,26 +25,27 @@ const homePage = {
     { name: "VK", image: IconVK, url: "VK" },
     { name: "OK", image: IconOK, url: "OK" },
   ],
-  track: "http://www.alexkatz.me/codepen/music/interlude.mp3",
+  track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
   mainBanner: {
     content:
       "22.10.2019 — Москва, «Флакон», МосВегФест 2019 • 22.10.2019 — Москва, «Флакон», МосВегФест 2019 • 22.10.2019 Москва, «Флакон», МосВегФест 2019 • ",
     visibly: true,
   },
 }
-const IndexPage = () => (
-  <>
-    <Layout>
-      <Footer {...homePage} />
-    </Layout>
-    <Banner
-      content={homePage.mainBanner.content}
-      visibly={homePage.mainBanner.visibly}
-    />
-  </>
-  //   </FullsizePicture>
-  // </div>
-)
+
+const IndexPage = () => {
+  return (
+    <>
+      <Layout bg={homePage.background.lg} isMain={true}>
+        <Footer {...homePage} />
+      </Layout>
+      <Banner
+        content={homePage.mainBanner.content}
+        visibly={homePage.mainBanner.visibly}
+      />
+    </>
+  )
+}
 
 export default IndexPage
 
@@ -68,3 +73,4 @@ export default IndexPage
 //       },
 //     ]}
 //   >
+// </div>

@@ -6,7 +6,7 @@ const SigleCard = ({
   name,
   image,
   visibly,
-  isSinglePlaying,
+  isPlaying,
   playSingle,
   pauseSingle,
 }) => {
@@ -18,9 +18,9 @@ const SigleCard = ({
 
           <div
             className="single-card_overlay"
-            onClick={isSinglePlaying ? pauseSingle : playSingle}
+            onClick={isPlaying ? pauseSingle : playSingle}
           >
-            {isSinglePlaying ? (
+            {isPlaying ? (
               <img
                 src={IconPause}
                 className="single-card_overlay-play-btn"

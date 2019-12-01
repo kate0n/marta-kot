@@ -19,11 +19,16 @@ const SocialNetwork = [
 const contactsPage = {
   phone: "+7 903 158-68-29",
   email: "pr@martakot.com",
-  background: "",
+  background: {
+    xs: "../images/contacts.png",
+    sm: "../images/contacts.png",
+    md: "../images/contacts.png",
+    lg: "../images/main.png",
+  },
 }
 
 const ContactsPage = () => (
-  <Layout>
+  <Layout bg={contactsPage.background.lg}>
     <div className="inner-container">
       <PageTitle title="Контакты" />
       <div className="contacts">

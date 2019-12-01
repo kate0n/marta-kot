@@ -6,7 +6,6 @@ const MusicPlayerProvider = ({ children }) => {
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
-    currentTime: 0,
   })
 
   const [singlePlayer, setSinglePlayer] = useState({
@@ -15,43 +14,44 @@ const MusicPlayerProvider = ({ children }) => {
     currentTime: 0,
   })
 
-  const audioEl = document.getElementById("audio")
-
+  // получение дефолтного трека из HomePage (?)
   const getTrack = track => {
     setTrackPlayer({
       ...trackPlayer,
       track: track,
     })
+    console.log(track)
   }
 
+  const audio = document.getElementById("audio")
+
   const playTrack = () => {
-    debugger
     setTrackPlayer({
       ...trackPlayer,
-      // если playTrack вызывается для продолжения сингла
-      isTrackPlaying: singlePlayer.isSinglePlaying ? false : true,
+      isTrackPlaying: true,
     })
-    console.log("playTrack()", document.getElementById("audio"))
-    document.getElementById("audio").currentTime = trackPlayer.currentTime
-    document.getElementById("audio").play()
+    setSinglePlayer({
+      ...singlePlayer,
+      isSinglePlaying: true,
+    })
+    audio.play()
   }
 
   const pauseTrack = () => {
-    // debugger
     setTrackPlayer({
       ...trackPlayer,
       isTrackPlaying: false,
-      currentTime: document.getElementById("audio").currentTime,
     })
     setSinglePlayer({
       ...singlePlayer,
       isSinglePlaying: false,
+      currentTime: audio.currentTime,
     })
-    document.getElementById("audio").pause()
+    audio.pause()
   }
 
   const playSingle = single => {
-    debugger
+    // debugger
     setTrackPlayer({
       ...trackPlayer,
       isTrackPlaying: false,
@@ -60,8 +60,12 @@ const MusicPlayerProvider = ({ children }) => {
       isSinglePlaying: true,
       single: single,
     })
-    document.getElementById("audio").currentTime = singlePlayer.currentTime
-    document.getElementById("audio").play()
+    //
+    audio.src = single
+    single === singlePlayer.single
+      ? (audio.currentTime = Math.round(singlePlayer.currentTime))
+      : (audio.currentTime = 0)
+    audio.play()
   }
 
   const pauseSingle = () => {
@@ -69,9 +73,9 @@ const MusicPlayerProvider = ({ children }) => {
     setSinglePlayer({
       ...singlePlayer,
       isSinglePlaying: false,
-      currentTime: document.getElementById("audio").currentTime,
+      currentTime: audio.currentTime,
     })
-    document.getElementById("audio").pause()
+    audio.pause()
   }
 
   return (

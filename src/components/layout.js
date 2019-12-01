@@ -1,16 +1,15 @@
-import React, { useContext } from "react"
+import React from "react"
 import Header from "./header/header"
-import AudioPortal from "./play-music-button/audio-portal"
-import MusicPlayerContext from "../context/MusicPlayerContext"
 
-const Layout = ({ children }) => {
-  const { track, single } = useContext(MusicPlayerContext)
+const Layout = ({ children, bg, isMain }) => {
   return (
-    <div className="app">
+    <div
+      className="app-wrapper"
+      style={{ backgroundImage: `url("${bg}")`, height: `${isMain && "100%"}` }}
+    >
       <div className="outer-container">
         <Header />
         <main>{children}</main>
-        <AudioPortal track={single || track} />
       </div>
     </div>
   )

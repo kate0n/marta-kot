@@ -19,7 +19,7 @@ const musicPage = {
     {
       name: "Не принц",
       image: SingleImage,
-      track: "http://www.alexkatz.me/codepen/music/interlude.mp",
+      track: "http://www.alexkatz.me/codepen/music/interlude.mp3",
       visibly: true,
     },
     {
@@ -47,7 +47,12 @@ const musicPage = {
       visibly: true,
     },
   ],
-  background: "",
+  background: {
+    xs: "../images/music.png",
+    sm: "../images/music.png",
+    md: "../images/music.png",
+    lg: "../images/main.png",
+  },
   moreMusicUrl: "",
 }
 
@@ -56,23 +61,15 @@ const MusicPage = () => {
     MusicPlayerContext
   )
   return (
-    <Layout>
+    <Layout bg={musicPage.background.lg}>
       <div className="inner-container">
         <PageTitle title="Музыка" />
         <div className="music">
           {musicPage.singles.map((singleItem, index) => (
             <SingleCard
               {...singleItem}
-              // чтобы иконка play/pause менялась только на карточке с выбранным синглом
-              isSinglePlaying={
-                singleItem.track === single ? isSinglePlaying : false
-              }
-              // вызываем меняем playSingle():
-              //isSinglePlaying на true, isTrackPlaying на false (если играл дефолтный трек)
-              // в play-music-button.js вызывается ф-я playTrack с ref и флагом true, о
-              // значающим, что надо включить сингл, а не дефолтный трек
-              playSingle={() => playSingle(single.track)}
-              // меняем isSinglePlaying на false, меняем isTrackPlaying на false (если играл дефолтный трек)
+              isPlaying={singleItem.track === single ? isSinglePlaying : false}
+              playSingle={() => playSingle(singleItem.track)}
               pauseSingle={() => pauseSingle()}
               key={index}
             />

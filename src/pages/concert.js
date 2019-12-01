@@ -5,7 +5,12 @@ import NextPageBlock from "../components/next-page-block/next-page-block"
 import PageFooter from "../components/footer/page-footer"
 
 const concertPage = {
-  background: "",
+  background: {
+    xs: "../images/concerts.png",
+    sm: "../images/concerts.png",
+    md: "../images/concerts.png",
+    lg: "../images/main.png",
+  },
   concerts: [
     {
       visibly: true,
@@ -46,17 +51,22 @@ const concertPage = {
   ],
   visibly: true,
 }
-
+//{concertPage.background}
 const ConcertPage = () => (
-  <Layout>
+  <Layout bg={concertPage.background.lg}>
     <div className="inner-container">
       <PageTitle title="Концерты" />
       <div className="concerts">
         {concertPage.concerts.map(
           (concert, index) =>
             concert.visibly && (
-              <a href={concert.url} target="_blank" rel="noopener noreferrer">
-                <div className="concerts_item" key={index}>
+              <a
+                href={concert.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+              >
+                <div className="concerts_item">
                   <p className="links">{concert.address}</p>
                   <h2 className="title_h2">{concert.city}</h2>
                   <h2 className="title_h2 title_h2--stroke">{concert.date}</h2>

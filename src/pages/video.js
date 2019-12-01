@@ -49,13 +49,18 @@ const videoPage = {
       url: "KCtLAqD63G4",
     },
   ],
-  background: "",
+  background: {
+    xs: "../images/video.png",
+    sm: "../images/video.png",
+    md: "../images/video.png",
+    lg: "../images/main.png",
+  },
   moreVideosUrl: "https://www.youtube.com/user/MartaKotMusic",
 }
 
 const VideoPage = () => {
   return (
-    <Layout>
+    <Layout bg={videoPage.background.lg}>
       <div className="inner-container">
         <PageTitle title="Видео" />
         <div className="video">

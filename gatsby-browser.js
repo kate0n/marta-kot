@@ -8,8 +8,17 @@
 import "./src/styles/index.scss"
 
 import React from "react"
-import { MusicPlayerProvider } from "./src/context/MusicPlayerContext"
+import MusicPlayerContext, {
+  MusicPlayerProvider,
+} from "./src/context/MusicPlayerContext"
 
 export const wrapRootElement = ({ element }) => (
   <MusicPlayerProvider>{element}</MusicPlayerProvider>
 )
+
+if (typeof document !== `undefined`) {
+  const el = document.createElement("audio")
+  el.id = "audio"
+  el.src = "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3"
+  !document.getElementById("audio") && document.body.appendChild(el)
+}
