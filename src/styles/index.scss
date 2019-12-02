@@ -21,28 +21,21 @@ html {
   font-family: GT Walsheim Pro;
   font-weight: 600;
   color: $white;
+  background-color: #0e0e0e; // <- цвет фона
 }
 
 .app-wrapper {
-  // content: "";
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
-  // z-index: -1;
-  position: absolute;
   width: 100%;
-  //height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
 }
 
 .outer-container {
-  margin: 48px 56px 56px 56px;
+  padding: 48px 56px 56px 56px;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
 
   @media (max-width: 768px) {
-    margin: 24px;
+    padding: 24px;
   }
 }
 
@@ -144,3 +137,24 @@ html {
 @import "components/music";
 @import "components/video";
 @import "components/contacts";
+
+
+.component-responsive-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+
+  .component-responsive-image-size {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    max-width: 100%;
+  }
+}
