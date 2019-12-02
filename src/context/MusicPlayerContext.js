@@ -1,24 +1,36 @@
 import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 const MusicPlayerContext = React.createContext()
 
-const useMusicState = ({currentTime = 0,}) =>  useState({
-  isSinglePlaying: false,
-  single: "",
-  currentTime: currentTime,
-})
-
-
+const useMusicState = ({ currentTime = 0 }) =>
+  useState({
+    isSinglePlaying: false,
+    single: "",
+    currentTime: currentTime,
+  })
 
 const MusicPlayerProvider = ({ children }) => {
+  // const data = useStaticQuery(graphql`
+  //   {
+  //     marta {
+  //       getHomePage {
+  //         track {
+  //           url
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
+  // console.log("context data", data)
 
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
   })
 
-  const [singlePlayer, setSinglePlayer] = useMusicState({});
+  const [singlePlayer, setSinglePlayer] = useMusicState({})
 
   // получение дефолтного трека из HomePage (?)
   const getTrack = track => {
