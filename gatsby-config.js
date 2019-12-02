@@ -51,5 +51,6 @@ module.exports = {
         url: "https://martakot.expanse.systems/graphql",
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 }

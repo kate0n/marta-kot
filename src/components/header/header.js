@@ -21,7 +21,7 @@ const Header = props => {
   return (
     <Location>
       {({ location }) => (
-        <div className={isMobileMenuOpen && "mobile_container"}>
+        <div className={isMobileMenuOpen ? "mobile_container" : ""}>
           <header className="header">
             <div className="header_top">
               <Link to="/" className="header_logo">

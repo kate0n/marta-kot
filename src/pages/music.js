@@ -9,6 +9,18 @@ import MusicPlayerContext from "../context/MusicPlayerContext"
 import SingleImage from "../images/single_image.png"
 import NextPageBlock from "../components/next-page-block/next-page-block"
 
+import IconYoutube from "../images/Youtube.svg"
+import IconFacebook from "../images/facebook.svg"
+import IconInstagram from "../images/insta.svg"
+import IconVK from "../images/vk.svg"
+import IconOK from "../images/ok.svg"
+const SocialNetwork = [
+  { image: IconYoutube, url: "YouTube" },
+  { image: IconFacebook, url: "Facebook" },
+  { image: IconInstagram, url: "Instagram" },
+  { image: IconVK, url: "VK" },
+  { image: IconOK, url: "OK" },
+]
 const musicPage = {
   singles: [
     {
@@ -49,9 +61,9 @@ const musicPage = {
     },
   ],
   background: {
-    xs: "/images/musicpage-bg-fullsize.jpg",
-    sm: "/images/musicpage-bg-fullsize.jpg",
-    md: "/images/musicpage-bg-fullsize.jpg",
+    xs: "/images/musicpage-bg-768.jpg",
+    sm: "/images/musicpage-bg-1024.jpg",
+    md: "/images/musicpage-bg-1440.jpg",
     lg: "/images/musicpage-bg-fullsize.jpg",
   },
   moreMusicUrl: "",
@@ -81,7 +93,7 @@ const MusicPage = props => {
         <ButtonMore title="Больше музыки" moreUrl={musicPage.moreMusicUrl} />
         <NextPageBlock link="/contacts" title="Контакты" />
       </div>
-      <PageFooter />
+      <PageFooter socialList={SocialNetwork} />
     </Layout>
   )
 }

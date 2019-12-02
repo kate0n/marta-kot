@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 13px;
+  margin-bottom: 19px;
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -16,7 +16,8 @@
   width: 288px;
   overflow: hidden;
   cursor: pointer;
-  margin: 0 -16px 20px -16px;
+  // margin: 0 -16px 20px -16px;
+  margin-bottom: 20px;
 
   &:before {
     content: "";
@@ -25,8 +26,9 @@
   }
 
   &_wrapper {
-    margin: 0 16px 81px 16px;
-
+    // margin: 0 16px 81px 16px;
+    margin-bottom: 81px;
+    width: 33.333333%;
     &:hover {
       color: $main;
     }
@@ -65,6 +67,12 @@
     }
   }
 
+  @media (max-width: 1200px) {
+    &_wrapper {
+      width: 50%;
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     margin: 0 0 20px 0;
@@ -74,7 +82,7 @@
     }
   }
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: 420px) {
     width: 100%;
 
     &-wrapper {

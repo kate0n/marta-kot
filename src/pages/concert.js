@@ -5,11 +5,23 @@ import PageTitle from "../components/page-title/page-title"
 import NextPageBlock from "../components/next-page-block/next-page-block"
 import PageFooter from "../components/footer/page-footer"
 
+import IconYoutube from "../images/Youtube.svg"
+import IconFacebook from "../images/facebook.svg"
+import IconInstagram from "../images/insta.svg"
+import IconVK from "../images/vk.svg"
+import IconOK from "../images/ok.svg"
+const SocialNetwork = [
+  { image: IconYoutube, url: "YouTube" },
+  { image: IconFacebook, url: "Facebook" },
+  { image: IconInstagram, url: "Instagram" },
+  { image: IconVK, url: "VK" },
+  { image: IconOK, url: "OK" },
+]
 const concertPage = {
   background: {
-    xs: "/images/concertpage-bg-fullsize.jpg",
-    sm: "/images/concertpage-bg-fullsize.jpg",
-    md: "/images/concertpage-bg-fullsize.jpg",
+    xs: "/images/concertpage-bg-768.jpg",
+    sm: "/images/concertpage-bg-1024.jpg",
+    md: "/images/concertpage-bg-1024.jpg",
     lg: "/images/concertpage-bg-fullsize.jpg",
   },
   concerts: [
@@ -83,7 +95,7 @@ const ConcertPage = props => {
         </div>
         <NextPageBlock link="/video" title="Видео" />
       </div>
-      <PageFooter />
+      <PageFooter socialList={SocialNetwork} />
     </Layout>
   )
 }

@@ -27,7 +27,7 @@ const PlayMusicButton = ({ className }) => {
           onClick={playTrack}
           src={IconPlay}
           alt="Включить"
-          className="toogler"
+          className="toogler toogler-play"
         />
       )}
     </div>

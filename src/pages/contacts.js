@@ -21,9 +21,9 @@ const contactsPage = {
   phone: "+7 903 158-68-29",
   email: "pr@martakot.com",
   background: {
-    xs: "/images/contactspage-bg-fullsize.jpg",
-    sm: "/images/contactspage-bg-fullsize.jpg",
-    md: "/images/contactspage-bg-fullsize.jpg",
+    xs: "/images/contactspage-bg-768.jpg",
+    sm: "/images/contactspage-bg-1024.jpg",
+    md: "/images/contactspage-bg-1440.jpg",
     lg: "/images/contactspage-bg-fullsize.jpg",
   },
 }

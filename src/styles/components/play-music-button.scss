@@ -1,10 +1,26 @@
 @import "../variables.scss";
 
 .music-btn {
-  position: relative;
+  position: fixed;
+  right: 56px;
+  bottom: 56px;
+  z-index: 1;
+
+  &-main {
+    position: relative;
+  }
+
+  @media (max-width: 1340px) {
+    right: 24px;
+    bottom: 24px;
+  }
 
   @media (max-width: $breakpoint) {
     display: none;
+
+    &-main {
+      display: none;
+    }
   }
 }
 
@@ -15,10 +31,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+
+  &-play {
+    top: 49%;
+    left: 53%;
+  }
 }
 
 .music-btn--mobile {
-  display: inline-block;
+  // display: inline-block;
   position: absolute;
   bottom: 34px;
 

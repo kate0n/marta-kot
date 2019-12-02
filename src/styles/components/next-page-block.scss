@@ -1,13 +1,25 @@
 @import "../variables.scss";
 
 .next-page {
-  margin-bottom: 24px;
+  display: block;
+  margin-bottom: 56px;
   transition: $transition;
 
   p {
     color: $gray;
   }
+  
   &:hover {
+    color: $main;
+  }
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 32px;
+  }
+}
+
+.copyright {
+  a:hover {
     color: $main;
   }
 }

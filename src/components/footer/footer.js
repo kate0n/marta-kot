@@ -18,7 +18,7 @@ const Footer = ({ socialList }) => (
       ))}
     </ul>
 
-    <PlayMusicButton />
+    <PlayMusicButton className="music-btn-main" />
   </footer>
 )
 

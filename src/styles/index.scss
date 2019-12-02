@@ -8,8 +8,18 @@
 }
 
 @font-face {
-  font-family: "EDA TV";
+  font-family: "GT Walsheim Pro";
   src: url("../../static/fonts/gt-walsheim-medium.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("../../static/fonts/gt-walsheim-medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("../../static/fonts/gt-walsheim-medium.woff") format("woff");
 }
 
 body,
@@ -27,6 +37,7 @@ html {
 
 .app-wrapper {
   width: 100%;
+  overflow: hidden;
 }
 
 .component-responsive-image img {
@@ -109,6 +120,7 @@ html {
   background: $main;
   color: $black;
   transform: skewY(-5deg);
+  margin-top: 244px;
 
   &_text {
     font-size: 64px;

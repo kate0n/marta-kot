@@ -7,6 +7,18 @@ import NextPageBlock from "../components/next-page-block/next-page-block"
 import ButtonMore from "../components/button-more/button-more"
 import PageFooter from "../components/footer/page-footer"
 
+import IconYoutube from "../images/Youtube.svg"
+import IconFacebook from "../images/facebook.svg"
+import IconInstagram from "../images/insta.svg"
+import IconVK from "../images/vk.svg"
+import IconOK from "../images/ok.svg"
+const SocialNetwork = [
+  { image: IconYoutube, url: "YouTube" },
+  { image: IconFacebook, url: "Facebook" },
+  { image: IconInstagram, url: "Instagram" },
+  { image: IconVK, url: "VK" },
+  { image: IconOK, url: "OK" },
+]
 const videoPage = {
   videos: [
     {
@@ -51,9 +63,9 @@ const videoPage = {
     },
   ],
   background: {
-    xs: "/images/videopage-bg-fullsize.jpg",
-    sm: "/images/videopage-bg-fullsize.jpg",
-    md: "/images/videopage-bg-fullsize.jpg",
+    xs: "/images/videopage-bg-768.jpg",
+    sm: "/images/videopage-bg-1024.jpg",
+    md: "/images/videopage-bg-1440.jpg",
     lg: "/images/videopage-bg-fullsize.jpg",
   },
   moreVideosUrl: "https://www.youtube.com/user/MartaKotMusic",
@@ -74,7 +86,7 @@ const VideoPage = props => {
         <ButtonMore title="Больше видео" moreUrl={videoPage.moreVideosUrl} />
         <NextPageBlock link="/music" title="Музыка" />
       </div>
-      <PageFooter />
+      <PageFooter socialList={SocialNetwork}/>
     </Layout>
   )
 }

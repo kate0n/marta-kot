@@ -27,6 +27,7 @@
       }
     }
   }
+
   @media (max-width: $breakpoint) {
     justify-content: center;
     bottom: 88px;
@@ -37,14 +38,31 @@
   @include footer-base;
   width: 100%;
 
-  &_copyright {
-    height: 46px;
-    width: 100%;
-    max-width: 928px;
-    padding: 13px 36px;
+  &_share-container {
+    cursor: pointer;
+    position: fixed;
+    left: 56px;
+    bottom: 56px;
+    z-index: 1;
 
-    a:hover {
-      color: $main;
+    &:hover > .page-footer_social-buttons {
+      display: flex;
+    }
+  }
+
+  &_social-buttons {
+    display: none;
+    flex-direction: column;
+
+    .social_button {
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.1s all;
+
+      &:hover {
+        filter: invert(73%) sepia(97%) saturate(1938%) hue-rotate(81deg)
+          brightness(201%) contrast(109%);
+      }
     }
   }
 
@@ -60,6 +78,12 @@
     }
   }
 
+  @media (max-width: 1340px) {
+    &_share-container {
+      left: 24px;
+    }
+  }
+
   @media (max-width: $breakpoint) {
     &_share {
       display: none;
@@ -69,7 +93,4 @@
       padding: 13px 0;
     }
   }
-}
-
-.play-music-button {
 }
