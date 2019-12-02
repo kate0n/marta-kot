@@ -18,7 +18,7 @@ const MusicPlayerProvider = ({ children }) => {
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
   })
 
-  const [singlePlayer, setSinglePlayer] = useMusicState();
+  const [singlePlayer, setSinglePlayer] = useMusicState({});
 
   // получение дефолтного трека из HomePage (?)
   const getTrack = track => {
