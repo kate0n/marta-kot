@@ -1,15 +1,16 @@
 import React from "react"
+import Loadable from "@loadable/component"
+
 import Header from "./header/header"
-import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
+import { isBrowser } from "../pages"
+const ResponsiveImageBackground = Loadable(() =>
+  import("./ResponsiveImageBackground/ResponsiveImageBackground")
+)
+
 const Layout = ({ children, bg }) => {
   return (
     <div className="app-wrapper">
-      <ResponsiveImage>
-        <ResponsiveImageSize default minWidth={0} path={bg.xs} />
-        <ResponsiveImageSize minWidth={1024} path={bg.sm} />
-        <ResponsiveImageSize minWidth={1440} path={bg.md} />
-        <ResponsiveImageSize minWidth={1600} path={bg.lg} />
-      </ResponsiveImage>
+      {isBrowser && <ResponsiveImageBackground bg={bg} />}
 
       <div className="outer-container">
         <Header />

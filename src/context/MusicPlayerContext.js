@@ -3,12 +3,12 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const MusicPlayerContext = React.createContext()
 
-const useMusicState = ({ currentTime = 0 }) =>
-  useState({
-    isSinglePlaying: false,
-    single: "",
-    currentTime: currentTime,
-  })
+const useMusicState = ({ currentTime = 0 }) => useState({
+  isSinglePlaying: false,
+  single: "",
+  currentTime: currentTime,
+})
+
 
 const MusicPlayerProvider = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -40,8 +40,13 @@ const MusicPlayerProvider = ({ children }) => {
     })
     console.log(track)
   }
+  let audio;
 
-  const audio = document.getElementById("audio")
+  try{
+    audio = typeof document !== "undefined" ? document.getElementById("audio") : null
+  } catch (e) {
+    console.log(e)
+  }
 
   const playTrack = () => {
     setTrackPlayer({
