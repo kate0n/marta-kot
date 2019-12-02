@@ -8,7 +8,7 @@
 import "./src/styles/index.scss"
 
 import React from "react"
-import MusicPlayerContext, {
+import {
   MusicPlayerProvider,
 } from "./src/context/MusicPlayerContext"
 

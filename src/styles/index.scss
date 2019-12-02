@@ -29,6 +29,10 @@ html {
   width: 100%;
 }
 
+.component-responsive-image img {
+  min-width: 100%;
+}
+
 .outer-container {
   padding: 48px 56px 56px 56px;
   min-height: 100vh;
@@ -139,13 +143,11 @@ html {
 @import "components/video";
 @import "components/contacts";
 
-
 .component-responsive-image {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-
 
   .component-responsive-image-size {
     display: flex;

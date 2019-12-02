@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
 import SingleCard from "../components/single-card/single-card"
@@ -48,20 +49,22 @@ const musicPage = {
     },
   ],
   background: {
-    xs: "../images/music.png",
-    sm: "../images/music.png",
-    md: "../images/music.png",
-    lg: "../images/main.png",
+    xs: "/images/musicpage-bg-fullsize.jpg",
+    sm: "/images/musicpage-bg-fullsize.jpg",
+    md: "/images/musicpage-bg-fullsize.jpg",
+    lg: "/images/musicpage-bg-fullsize.jpg",
   },
   moreMusicUrl: "",
 }
 
-const MusicPage = () => {
+const MusicPage = props => {
+  const { getMusic } = props.data.marta
+  console.log("getHomePage", getMusic)
   const { isSinglePlaying, single, playSingle, pauseSingle } = useContext(
     MusicPlayerContext
   )
   return (
-    <Layout bg={musicPage.background.lg}>
+    <Layout bg={musicPage.background}>
       <div className="inner-container">
         <PageTitle title="Музыка" />
         <div className="music">
@@ -82,5 +85,50 @@ const MusicPage = () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  {
+    marta {
+      getMusic {
+        background {
+          xs {
+            url
+          }
+          sm {
+            url
+          }
+          md {
+            url
+          }
+          lg {
+            url
+          }
+        }
+        moreMusicUrl
+        singles {
+          name
+          image {
+            xs {
+              url
+            }
+            sm {
+              url
+            }
+            md {
+              url
+            }
+            lg {
+              url
+            }
+          }
+          track {
+            url
+          }
+          visibly
+        }
+      }
+    }
+  }
+`
 
 export default MusicPage

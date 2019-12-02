@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 const MusicPlayerContext = React.createContext()
 
@@ -10,7 +11,19 @@ const useMusicState = ({ currentTime = 0 }) => useState({
 
 
 const MusicPlayerProvider = ({ children }) => {
+  // const data = useStaticQuery(graphql`
+  //   {
+  //     marta {
+  //       getHomePage {
+  //         track {
+  //           url
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
+  // console.log("context data", data)
 
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,

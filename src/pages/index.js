@@ -2,7 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import Footer from "../components/footer/footer"
 import Banner from "../components/banner/banner"
-// temporary
+
+// временные
 import IconYoutube from "../images/Youtube.svg"
 import IconFacebook from "../images/facebook.svg"
 import IconInstagram from "../images/insta.svg"
@@ -11,10 +12,10 @@ import IconOK from "../images/ok.svg"
 export const isBrowser = () => typeof window !== "undefined"
 const homePage = {
   background: {
-    xs: "../images/main.png",
-    sm: "../images/main.png",
-    md: "../images/main.png",
-    lg: "../images/main.png",
+    xs: "/images/homepage-bg-768.jpg",
+    sm: "/images/homepage-bg-1024.jpg",
+    md: "/images/homepage-bg-1440.jpg",
+    lg: "/images/homepage-bg-fullsize.jpg",
   },
   socialList: [
     { name: "YouTube", image: IconYoutube, url: "YouTube" },
@@ -30,11 +31,14 @@ const homePage = {
     visibly: true,
   },
 }
+// временные
 
-const IndexPage = () => {
+const IndexPage = props => {
+  const { getHomePage } = props.data.marta
+  console.log("getHomePage", getHomePage)
   return (
     <>
-      <Layout bg={homePage.background.lg} isMain={true}>
+      <Layout bg={homePage.background}>
         <Footer {...homePage} />
       </Layout>
       <Banner
@@ -47,28 +51,39 @@ const IndexPage = () => {
 
 export default IndexPage
 
-// <div style={{ height: "864px" }}>
-//   <FullsizePicture
-//     sources={[
-//       {
-//         srcSet: "../images/main.png",
-//         media: "(max-width: 320px)",
-//       },
-//       {
-//         srcSet: "../images/main.png",
-//         media: "(max-width: 768px)",
-//       },
-//       {
-//         srcSet: "../images/main.png",
-//         media: "(max-width: 1024px)",
-//       },
-//       {
-//         srcSet: "../images/main.png",
-//         media: "(max-width: 1440px)",
-//       },
-//       {
-//         srcSet: "../images/main.png",
-//       },
-//     ]}
-//   >
-// </div>
+export const pageQuery = graphql`
+  {
+    marta {
+      getHomePage {
+        background {
+          xs {
+            url
+          }
+          sm {
+            url
+          }
+          md {
+            url
+          }
+          lg {
+            url
+          }
+        }
+        track {
+          url
+        }
+        mainBanner {
+          content
+          visibly
+        }
+        socialList {
+          name
+          url
+          image {
+            url
+          }
+        }
+      }
+    }
+  }
+`

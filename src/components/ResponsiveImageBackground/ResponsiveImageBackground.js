@@ -1,26 +1,13 @@
 import React from "react"
 import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
 
-const ResponsiveImageBackground = () => {
+const ResponsiveImageBackground = ({ bg }) => {
   return (
     <ResponsiveImage>
-      <ResponsiveImageSize
-        default
-        minWidth={0}
-        path={'/images/homepage-bg-768.jpg'}
-      />
-      <ResponsiveImageSize
-        minWidth={1024}
-        path={'/images/homepage-bg-1024.jpg'}
-      />
-      <ResponsiveImageSize
-        minWidth={1440}
-        path={'/images/homepage-bg-1440.jpg'}
-      />
-      <ResponsiveImageSize
-        minWidth={1600}
-        path={'/images/homepage-bg-fullsize.jpg'}
-      />
+      <ResponsiveImageSize default minWidth={0} path={bg.xs} />
+      <ResponsiveImageSize minWidth={1024} path={bg.sm} />
+      <ResponsiveImageSize minWidth={1440} path={bg.md} />
+      <ResponsiveImageSize minWidth={1600} path={bg.lg} />
     </ResponsiveImage>
   )
 }
