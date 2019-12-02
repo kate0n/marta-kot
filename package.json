@@ -15,6 +15,7 @@
     "gatsby-plugin-sharp": "^2.3.3",
     "gatsby-plugin-typescript": "^2.1.19",
     "gatsby-source-filesystem": "^2.1.38",
+    "gatsby-source-graphql": "^2.1.25",
     "gatsby-transformer-sharp": "^2.3.5",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",

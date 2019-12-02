@@ -30,15 +30,26 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-portal`,
-      options: {
-        key: "portal",
-        id: "portal",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-portal`,
+    //   options: {
+    //     key: "portal",
+    //     id: "portal",
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "MARTA",
+        // This is the field under which it's accessible
+        fieldName: "marta",
+        // URL to query from
+        url: "https://martakot.expanse.systems/graphql",
+      },
+    },
   ],
 }
