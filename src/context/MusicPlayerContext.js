@@ -2,17 +2,23 @@ import React, { useState } from "react"
 
 const MusicPlayerContext = React.createContext()
 
+const useMusicState = ({currentTime = 0,}) =>  useState({
+  isSinglePlaying: false,
+  single: "",
+  currentTime: currentTime,
+})
+
+
+
 const MusicPlayerProvider = ({ children }) => {
+
+
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
   })
 
-  const [singlePlayer, setSinglePlayer] = useState({
-    isSinglePlaying: false,
-    single: "",
-    currentTime: 0,
-  })
+  const [singlePlayer, setSinglePlayer] = useMusicState({});
 
   // получение дефолтного трека из HomePage (?)
   const getTrack = track => {

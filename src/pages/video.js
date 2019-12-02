@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
 import VideoCard from "../components/video-card/video-card"
@@ -50,17 +51,19 @@ const videoPage = {
     },
   ],
   background: {
-    xs: "../images/video.png",
-    sm: "../images/video.png",
-    md: "../images/video.png",
-    lg: "../images/main.png",
+    xs: "/images/videopage-bg-fullsize.jpg",
+    sm: "/images/videopage-bg-fullsize.jpg",
+    md: "/images/videopage-bg-fullsize.jpg",
+    lg: "/images/videopage-bg-fullsize.jpg",
   },
   moreVideosUrl: "https://www.youtube.com/user/MartaKotMusic",
 }
 
-const VideoPage = () => {
+const VideoPage = props => {
+  const { getVideo } = props.data.marta
+  console.log("getHomePage", getVideo)
   return (
-    <Layout bg={videoPage.background.lg}>
+    <Layout bg={videoPage.background}>
       <div className="inner-container">
         <PageTitle title="Видео" />
         <div className="video">
@@ -75,5 +78,45 @@ const VideoPage = () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  {
+    marta {
+      getVideo {
+        background {
+          xs {
+            url
+          }
+          sm {
+            url
+          }
+          md {
+            url
+          }
+          lg {
+            url
+          }
+        }
+        moreVideosUrl
+        videos {
+          visibly
+          preview {
+            mp4 {
+              url
+            }
+            webm {
+              url
+            }
+            ogg {
+              url
+            }
+          }
+          name
+          url
+        }
+      }
+    }
+  }
+`
 
 export default VideoPage
