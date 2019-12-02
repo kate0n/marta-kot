@@ -95,6 +95,15 @@ export const pageQuery = graphql`
                     }
                 }
             }
+            getHomePage{
+                socialList{
+                    name
+                    url
+                    image{
+                        url
+                    }
+                }
+            }
         }
     }
 `
