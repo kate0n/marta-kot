@@ -29,7 +29,7 @@ const contactsPage = {
 }
 
 const ContactsPage = (props) => {
-  console.log('ContactsPage: ',props)
+  console.log('ContactsPage: ',pageQuery)
   return (
     <Layout bg={contactsPage.background.lg}>
       <div className="inner-container">
