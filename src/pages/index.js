@@ -1,6 +1,4 @@
 import React from "react"
-import { FullsizePicture } from "react-responsive-picture"
-
 import Layout from "../components/layout"
 import Footer from "../components/footer/footer"
 import Banner from "../components/banner/banner"
@@ -10,7 +8,7 @@ import IconFacebook from "../images/facebook.svg"
 import IconInstagram from "../images/insta.svg"
 import IconVK from "../images/vk.svg"
 import IconOK from "../images/ok.svg"
-
+export const isBrowser = () => typeof window !== "undefined"
 const homePage = {
   background: {
     xs: "../images/main.png",
