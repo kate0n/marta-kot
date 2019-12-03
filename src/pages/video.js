@@ -73,7 +73,7 @@ const videoPage = {
 
 const VideoPage = props => {
   const { getVideo } = props.data.marta
-  console.log("getHomePage", getVideo)
+  console.log("getVideo", getVideo)
   return (
     <Layout bg={videoPage.background}>
       <div className="inner-container">
@@ -86,7 +86,7 @@ const VideoPage = props => {
         <ButtonMore title="Больше видео" moreUrl={videoPage.moreVideosUrl} />
         <NextPageBlock link="/music" title="Музыка" />
       </div>
-      <PageFooter socialList={SocialNetwork}/>
+      <PageFooter socialList={SocialNetwork} />
     </Layout>
   )
 }

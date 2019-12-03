@@ -20,7 +20,6 @@ const useMusicState = ({ currentTime = 0 }) =>
   })
 
 const MusicPlayerProvider = ({ children, data, graphql }) => {
-
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
@@ -31,17 +30,17 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
     // mode: 'cors'
   })
 
-  useEffect(() => {
-    const defaultTrack = request.query(QUERY)
-      .then(({data}) => {
-        if(data){
-          setTrackPlayer({
-            ...trackPlayer,
-            track: data.getHomePage.track.url,
-          })
-        }
-      })
-  }, [])
+  // useEffect(() => {
+  //   const defaultTrack = request.query(QUERY)
+  //     .then(({data}) => {
+  //       if(data){
+  //         setTrackPlayer({
+  //           ...trackPlayer,
+  //           track: data.getHomePage.track.url,
+  //         })
+  //       }
+  //     })
+  // }, [])
 
   const [singlePlayer, setSinglePlayer] = useMusicState({})
 
@@ -72,7 +71,7 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
       isSinglePlaying: true,
     })
 
-    audio.src = trackPlayer.track;
+    audio.src = trackPlayer.track
 
     audio.play()
   }

@@ -34,6 +34,13 @@
   }
 }
 
+.no-banner {
+  bottom: 56px;
+  @media (max-width: $breakpoint) {
+    bottom: 24px;
+  }
+}
+
 .page-footer {
   @include footer-base;
   width: 100%;
@@ -96,7 +103,7 @@
 }
 
 .copyright.text {
-  color: #CBCBCB;
+  color: #cbcbcb;
   a {
     color: #ffffff;
   }

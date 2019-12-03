@@ -20,19 +20,11 @@ const SigleCard = ({
             className="single-card_overlay"
             onClick={isPlaying ? pauseSingle : playSingle}
           >
-            {isPlaying ? (
-              <img
-                src={IconPause}
-                className="single-card_overlay-play-btn"
-                alt="pause"
-              />
-            ) : (
-              <img
-                src={IconPlay}
-                className="single-card_overlay-play-btn"
-                alt="play"
-              />
-            )}
+            <img
+              src={IconPlay}
+              className="single-card_overlay-play-btn"
+              alt="play"
+            />
           </div>
         </div>
         {/* track name */}

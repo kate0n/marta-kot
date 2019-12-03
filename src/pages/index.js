@@ -44,10 +44,9 @@ const IndexPage = props => {
       <Layout bg={homePage.background}>
         <Footer {...homePage} />
       </Layout>
-      <Banner
-        content={homePage.mainBanner.content}
-        visibly={homePage.mainBanner.visibly}
-      />
+      {homePage.mainBanner.visibly && (
+        <Banner content={getHomePage.mainBanner.content} />
+      )}
     </>
   )
 }

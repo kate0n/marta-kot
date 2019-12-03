@@ -71,7 +71,7 @@ const musicPage = {
 
 const MusicPage = props => {
   const { getMusic } = props.data.marta
-  console.log("getHomePage", getMusic)
+  console.log("getMusic", getMusic)
   const { isSinglePlaying, single, playSingle, pauseSingle } = useContext(
     MusicPlayerContext
   )
