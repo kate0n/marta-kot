@@ -36,12 +36,12 @@ const homePage = {
 // временные
 
 const IndexPage = props => {
-  const { getHomePage } = props.data.marta
-  console.log("getHomePage", getHomePage)
+  const { getHomePage,getConcerts } = props.data.marta
+  console.log("getHomePage",getConcerts, getHomePage)
 
   return (
     <>
-      <Layout bg={homePage.background}>
+      <Layout isVisibleConcert={getConcerts.visibly} bg={homePage.background}>
         <Footer {...homePage} />
       </Layout>
       {homePage.mainBanner.visibly && (
@@ -56,6 +56,9 @@ export default IndexPage
 export const pageQuery = graphql`
   {
     marta {
+      getConcerts {
+        visibly
+      }
       getHomePage {
         background {
           xs {
