@@ -10,6 +10,7 @@ import IconFacebook from "../images/facebook.svg"
 import IconInstagram from "../images/insta.svg"
 import IconVK from "../images/vk.svg"
 import IconOK from "../images/ok.svg"
+
 const SocialNetwork = [
   { image: IconYoutube, url: "YouTube" },
   { image: IconFacebook, url: "Facebook" },
@@ -68,14 +69,17 @@ const concertPage = {
 const ConcertPage = props => {
   const { getConcerts } = props.data.marta
   console.log("getConcerts", getConcerts)
+
   return (
     <Layout bg={concertPage.background}>
       <div className="inner-container">
-        <PageTitle title="Концерты" />
+        <PageTitle title="Концерты"/>
         <div className="concerts">
-          {concertPage.concerts.map(
-            (concert, index) =>
-              concert.visibly && (
+          {
+            getConcerts.concerts
+              .filter(item => item.visibly === true)
+              .map(
+              (concert, index) =>
                 <a
                   href={concert.url}
                   target="_blank"
@@ -89,48 +93,47 @@ const ConcertPage = props => {
                       {concert.date}
                     </h2>
                   </div>
-                </a>
-              )
-          )}
+                </a>,
+            )
+          }
         </div>
-        <NextPageBlock link="/video" title="Видео" />
+        <NextPageBlock link="/video" title="Видео"/>
       </div>
-      <PageFooter socialList={SocialNetwork} />
+      <PageFooter socialList={SocialNetwork}/>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  {
-    marta {
-      getConcerts {
-        background {
-          xs {
-            url
-          }
-          sm {
-            url
-          }
-          md {
-            url
-          }
-          lg {
-            url
-          }
+    {
+        marta {
+            getConcerts {
+                background {
+                    xs {
+                        url
+                    }
+                    sm {
+                        url
+                    }
+                    md {
+                        url
+                    }
+                    lg {
+                        url
+                    }
+                }
+                visibly
+                concerts {
+                    visibly
+                    name
+                    city
+                    address
+                    date
+                    url
+                }
+            }
         }
-        visibly
-        concerts {
-          visibly
-          name
-          description
-          city
-          address
-          date
-          url
-        }
-      }
     }
-  }
 `
 
 export default ConcertPage

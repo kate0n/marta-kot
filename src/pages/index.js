@@ -9,6 +9,8 @@ import IconFacebook from "../images/facebook.svg"
 import IconInstagram from "../images/insta.svg"
 import IconVK from "../images/vk.svg"
 import IconOK from "../images/ok.svg"
+import { graphql, useStaticQuery } from "gatsby"
+
 export const isBrowser = () => typeof window !== "undefined"
 const homePage = {
   background: {
@@ -36,6 +38,7 @@ const homePage = {
 const IndexPage = props => {
   const { getHomePage } = props.data.marta
   console.log("getHomePage", getHomePage)
+
   return (
     <>
       <Layout bg={homePage.background}>

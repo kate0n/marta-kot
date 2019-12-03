@@ -30,8 +30,9 @@ const contactsPage = {
 //временные
 
 const ContactsPage = props => {
-  const { getContacts, getGomePage } = props.data.marta
-  console.log("getContacts: ", getContacts, "getGomePage", getGomePage)
+  const { getContacts, getHomePage } = props.data.marta
+  console.log('ContactsPage: ',getContacts)
+  console.log('ContactsPage: ',getHomePage)
 
   return (
     <Layout bg={contactsPage.background}>
@@ -39,10 +40,10 @@ const ContactsPage = props => {
         <PageTitle title="Контакты" />
         <div className="contacts">
           <h3 className="contacts_mail title_h3">
-            <a href={`mailto:${contactsPage.email}`}>{contactsPage.email}</a>
+            <a href={`mailto:${getContacts.email}`}>{getContacts.email}</a>
           </h3>
           <h2 className="contacts_tel title_h2">
-            <a href={`tel:${contactsPage.phone}`}>{contactsPage.phone}</a>
+            <a href={`tel:${getContacts.phone}`}>{getContacts.phone}</a>
           </h2>
         </div>
         <ul className="contacts_social-buttons footer_social-buttons">
