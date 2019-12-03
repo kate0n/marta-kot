@@ -59,6 +59,9 @@ html {
   width: 100%;
   max-width: 928px;
   margin: 0 auto;
+  @media (max-width: 1200px) {
+    max-width: 610px;
+  }
 }
 
 .title_h1 {

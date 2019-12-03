@@ -3,6 +3,8 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 19px;
+  margin-left: -16px;
+  margin-right: -16px;
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -13,7 +15,8 @@
 
 .single-card {
   position: relative;
-  width: 288px;
+  max-width: 288px;
+  width: 100%;
   overflow: hidden;
   cursor: pointer;
   // margin: 0 -16px 20px -16px;
@@ -27,6 +30,7 @@
 
   &_wrapper {
     // margin: 0 16px 81px 16px;
+    padding: 0 16px;
     margin-bottom: 81px;
     width: 33.333333%;
     &:hover {

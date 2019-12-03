@@ -63,7 +63,8 @@
 }
 
 .mobile_container {
-  background: #0e0e0e;
+  background: transparent;
+  padding-top: 48px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -71,9 +72,8 @@
   right: 0;
   z-index: 13;
   padding-top: 24px;
-  @media (min-width: $breakpoint) {
-    background: transparent;
-    padding-top: 48px;
+  @media (max-width: $breakpoint) {
+    background: #0e0e0e;
   }
 }
 
@@ -83,7 +83,7 @@
   padding: 0 24px;
   padding-top: 151px;
 
-  @media (min-width: $breakpoint) {
+  @media (min-width: 769px) {
     display: none !important;
   }
 

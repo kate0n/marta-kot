@@ -42,7 +42,7 @@
     cursor: pointer;
     position: fixed;
     left: 56px;
-    bottom: 56px;
+    bottom: 52px;
     z-index: 1;
 
     &:hover > .page-footer_social-buttons {
@@ -92,5 +92,12 @@
     &_copyright {
       padding: 13px 0;
     }
+  }
+}
+
+.copyright.text {
+  color: #CBCBCB;
+  a {
+    color: #ffffff;
   }
 }
