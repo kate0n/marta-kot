@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Location } from "@reach/router"
 import { Link } from "gatsby"
-import PlayMusicButton from "../../components/play-music-button/play-music-button"
 import logo from "../../images/logo.svg"
 
 let menuItems = [
@@ -11,13 +10,7 @@ let menuItems = [
   { name: "Контакты", link: "/contacts" },
 ]
 
-const Header = ({ isVisibleConcert }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
+const Header = ({ isVisibleConcert, toggleMobileMenu }) => {
   menuItems = menuItems.filter(item => {
     if (item.name === "Концерты" && !isVisibleConcert) {
       return false
@@ -28,7 +21,17 @@ const Header = ({ isVisibleConcert }) => {
   return (
     <Location>
       {({ location }) => (
-        <div className={isMobileMenuOpen ? "mobile_container" : ""}>
+        <>
+          {/*- mobile header */}
+          <div className="header_top header_top-mobile">
+            <Link to="/" className="header_logo">
+              <img src={logo} alt="logo" className="header_logo-img" />
+            </Link>
+            <div onClick={toggleMobileMenu} className="mobile-menu_burger">
+              <span></span>
+            </div>
+          </div>
+          {/* desktop header */}
           <header className="header">
             <div className="header_top">
               <Link to="/" className="header_logo">
@@ -50,45 +53,9 @@ const Header = ({ isVisibleConcert }) => {
                   ))}
                 </ul>
               </nav>
-              {/* бургер */}
-              <div
-                onClick={toggleMobileMenu}
-                className={
-                  isMobileMenuOpen
-                    ? "mobile-menu_burger mobile-menu_burger--open"
-                    : "mobile-menu_burger"
-                }
-              >
-                <span></span>
-              </div>
             </div>
           </header>
-          {/* mobile nav */}
-          <div
-            className={
-              isMobileMenuOpen
-                ? isVisibleConcert
-                  ? "mobile-menu mobile-menu--open"
-                  : "mobile-menu mobile-menu--open no-concert"
-                : "mobile-menu"
-            }
-          >
-            <nav className="mobile-menu_nav">
-              <ul>
-                {menuItems.map((menuItem, index) => (
-                  <li className="header_menu-item" key={index}>
-                    <Link to={menuItem.link} onClick={toggleMobileMenu}>
-                      {menuItem.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <PlayMusicButton
-              className={isMobileMenuOpen ? "music-btn--mobile" : ""}
-            />
-          </div>
-        </div>
+        </>
       )}
     </Location>
   )

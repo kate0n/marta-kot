@@ -36,8 +36,8 @@ const homePage = {
 // временные
 
 const IndexPage = props => {
-  const { getHomePage,getConcerts } = props.data.marta
-  console.log("getHomePage",getConcerts, getHomePage)
+  const { getHomePage, getConcerts } = props.data.marta
+  console.log("getHomePage", getConcerts, getHomePage)
 
   return (
     <>
@@ -45,7 +45,7 @@ const IndexPage = props => {
         <Footer {...homePage} />
       </Layout>
       {homePage.mainBanner.visibly && (
-        <Banner content={getHomePage.mainBanner.content} />
+        <Banner content={getHomePage.mainBanner.content} url="#" />
       )}
     </>
   )

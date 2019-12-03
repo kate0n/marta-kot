@@ -38,6 +38,17 @@ html {
 .app-wrapper {
   width: 100%;
   overflow: hidden;
+  transition: 0.6s all;
+
+  &--hidden {
+    transform: translateX(50%);
+  }
+
+  @media (min-width: $breakpoint) {
+    &--hidden {
+      transform: translateX(0);
+    }
+  }
 }
 
 .component-responsive-image img {

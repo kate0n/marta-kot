@@ -1,6 +1,7 @@
 import React from "react"
+import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
+
 import IconPlay from "../../images/single_play_btn.svg"
-import IconPause from "../../images/music_pause.svg"
 
 const SigleCard = ({
   name,
@@ -15,7 +16,6 @@ const SigleCard = ({
       <div className="single-card_wrapper">
         <div className="single-card">
           <img src={image} alt="" className="single-card-img" />
-
           <div
             className="single-card_overlay"
             onClick={isPlaying ? pauseSingle : playSingle}
