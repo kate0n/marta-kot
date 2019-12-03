@@ -1,5 +1,4 @@
 import React from "react"
-import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
 
 import IconPlay from "../../images/single_play_btn.svg"
 import IconPause from "../../images/pause-music.svg"
