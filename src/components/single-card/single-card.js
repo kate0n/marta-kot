@@ -2,6 +2,7 @@ import React from "react"
 import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
 
 import IconPlay from "../../images/single_play_btn.svg"
+import IconPause from "../../images/pause-music.svg"
 
 const SigleCard = ({
   name,
@@ -20,11 +21,19 @@ const SigleCard = ({
             className="single-card_overlay"
             onClick={isPlaying ? pauseSingle : playSingle}
           >
-            <img
-              src={IconPlay}
-              className="single-card_overlay-play-btn"
-              alt="play"
-            />
+            {isPlaying ? (
+              <img
+                src={IconPause}
+                className="single-card_overlay-play-btn"
+                alt="pause"
+              />
+            ) : (
+              <img
+                src={IconPlay}
+                className="single-card_overlay-play-btn"
+                alt="play"
+              />
+            )}
           </div>
         </div>
         {/* track name */}

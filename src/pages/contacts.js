@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import ScrollToTopHOC from "../components/scrollToTopHOC/scrollToTopHOC"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
 import PlayMusicButton from "../components/play-music-button/play-music-button"
@@ -31,8 +32,8 @@ const contactsPage = {
 
 const ContactsPage = props => {
   const { getContacts, getHomePage } = props.data.marta
-  console.log('ContactsPage: ',getContacts)
-  console.log('ContactsPage: ',getHomePage)
+  console.log("ContactsPage: ", getContacts)
+  console.log("ContactsPage: ", getHomePage)
 
   return (
     <Layout bg={contactsPage.background}>
@@ -112,4 +113,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default ContactsPage
+export default ScrollToTopHOC(ContactsPage)

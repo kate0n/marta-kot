@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import ScrollToTopHOC from "../components/scrollToTopHOC/scrollToTopHOC"
 import PageTitle from "../components/page-title/page-title"
 import SingleCard from "../components/single-card/single-card"
 import ButtonMore from "../components/button-more/button-more"
@@ -75,6 +76,7 @@ const MusicPage = props => {
   const { isSinglePlaying, single, playSingle, pauseSingle } = useContext(
     MusicPlayerContext
   )
+
   return (
     <Layout bg={musicPage.background}>
       <div className="inner-container">
@@ -143,4 +145,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default MusicPage
+export default ScrollToTopHOC(MusicPage)

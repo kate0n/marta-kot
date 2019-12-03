@@ -15,6 +15,11 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
+
+  // React.useEffect(() => {
+  //   isBrowser && window.scrollTo(0, 0)
+  // }, [])
+
   return (
     <>
       <Head />

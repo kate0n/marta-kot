@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import ScrollToTopHOC from "../components/scrollToTopHOC/scrollToTopHOC"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
 import VideoCard from "../components/video-card/video-card"
@@ -132,4 +133,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default VideoPage
+export default ScrollToTopHOC(VideoPage)

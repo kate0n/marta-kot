@@ -27,6 +27,7 @@ html {
   overflow-x: hidden;
   overflow: auto;
   height: 100%;
+  // height: auto;
   margin: 0;
   padding: 0;
   font-family: GT Walsheim Pro;
@@ -51,6 +52,10 @@ html {
   }
 }
 
+.component-responsive-image,
+.component-responsive-image-size {
+  height: 100% !important;
+}
 .component-responsive-image img {
   min-width: 100%;
 }
@@ -60,6 +65,7 @@ html {
   min-height: 100vh;
   position: relative;
   width: 100vw;
+  // padding-bottom: 88px;
 
   @media (max-width: 768px) {
     padding: 24px;
