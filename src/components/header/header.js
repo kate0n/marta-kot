@@ -14,7 +14,7 @@ const menuItems = [
 const Header = props => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const togglMobileMenu = () => {
+  const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
@@ -45,7 +45,7 @@ const Header = props => {
               </nav>
               {/* бургер */}
               <div
-                onClick={togglMobileMenu}
+                onClick={toggleMobileMenu}
                 className={
                   isMobileMenuOpen
                     ? "mobile-menu_burger mobile-menu_burger--open"
@@ -66,7 +66,7 @@ const Header = props => {
               <ul>
                 {menuItems.map((menuItem, index) => (
                   <li className="header_menu-item" key={index}>
-                    <Link to={menuItem.link} onClick={togglMobileMenu}>
+                    <Link to={menuItem.link} onClick={toggleMobileMenu}>
                       {menuItem.name}
                     </Link>
                   </li>
