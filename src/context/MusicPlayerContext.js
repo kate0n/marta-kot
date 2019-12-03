@@ -1,7 +1,16 @@
-import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useEffect, useState } from "react"
+import { useFetch } from "use-http"
 
 const MusicPlayerContext = React.createContext()
+export const QUERY = `
+    {
+      getHomePage{
+          track{
+            url
+          }
+      }
+    }
+`
 
 const useMusicState = ({ currentTime = 0 }) =>
   useState({
@@ -10,25 +19,29 @@ const useMusicState = ({ currentTime = 0 }) =>
     currentTime: currentTime,
   })
 
-const MusicPlayerProvider = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   {
-  //     marta {
-  //       getHomePage {
-  //         track {
-  //           url
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-
-  // console.log("context data", data)
+const MusicPlayerProvider = ({ children, data, graphql }) => {
 
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
   })
+
+  const request = useFetch({
+    url: "/graphql",
+    // mode: 'cors'
+  })
+
+  useEffect(() => {
+    const defaultTrack = request.query(QUERY)
+      .then(({data}) => {
+        if(data){
+          setTrackPlayer({
+            ...trackPlayer,
+            track: data.getHomePage.track.url,
+          })
+        }
+      })
+  }, [])
 
   const [singlePlayer, setSinglePlayer] = useMusicState({})
 
@@ -58,6 +71,9 @@ const MusicPlayerProvider = ({ children }) => {
       ...singlePlayer,
       isSinglePlaying: true,
     })
+
+    audio.src = trackPlayer.track;
+
     audio.play()
   }
 
