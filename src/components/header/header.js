@@ -4,19 +4,26 @@ import { Link } from "gatsby"
 import PlayMusicButton from "../../components/play-music-button/play-music-button"
 import logo from "../../images/logo.svg"
 
-const menuItems = [
+let menuItems = [
   { name: "Концерты", link: "/concert" },
   { name: "Видео", link: "/video" },
   { name: "Музыка", link: "/music" },
   { name: "Контакты", link: "/contacts" },
 ]
 
-const Header = props => {
+const Header = ({ isVisibleConcert }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
+
+  menuItems = menuItems.filter((item)=>{
+    if(item.name === 'Концерты' && !isVisibleConcert){
+      return false;
+    }
+    return true
+  });
 
   return (
     <Location>
@@ -25,22 +32,24 @@ const Header = props => {
           <header className="header">
             <div className="header_top">
               <Link to="/" className="header_logo">
-                <img src={logo} alt="logo" className="header_logo-img" />
+                <img src={logo} alt="logo" className="header_logo-img"/>
               </Link>
               <nav className="header_menu">
                 <ul>
-                  {menuItems.map((menuItem, index) => (
-                    <li
-                      className={
-                        location.pathname === menuItem.link
-                          ? "header_menu-item header_menu-item--active links"
-                          : "header_menu-item links"
-                      }
-                      key={index}
-                    >
-                      <Link to={menuItem.link}>{menuItem.name}</Link>
-                    </li>
-                  ))}
+                  {
+                    menuItems.map((menuItem, index) => (
+                      <li
+                        className={
+                          location.pathname === menuItem.link
+                            ? "header_menu-item header_menu-item--active links"
+                            : "header_menu-item links"
+                        }
+                        key={index}
+                      >
+                        <Link to={menuItem.link}>{menuItem.name}</Link>
+                      </li>
+                    ))
+                  }
                 </ul>
               </nav>
               {/* бургер */}

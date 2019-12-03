@@ -8,7 +8,7 @@ const ResponsiveImageBackground = Loadable(() =>
   import("./ResponsiveImageBackground/ResponsiveImageBackground")
 )
 
-const Layout = ({ children, bg }) => {
+const Layout = ({ children, bg, isVisibleConcert }) => {
   return (
     <>
       <Head />
@@ -16,7 +16,7 @@ const Layout = ({ children, bg }) => {
         {isBrowser && <ResponsiveImageBackground bg={bg} />}
 
         <div className="outer-container">
-          <Header />
+          <Header isVisibleConcert={isVisibleConcert} />
           <main>{children}</main>
         </div>
       </div>
