@@ -29,7 +29,7 @@ const videoPage = {
         ogg: "https://giant.gfycat.com/VerifiableTerrificHind.mp4",
       },
       name: "Маленький шаг",
-      url: "KCtLAqD63G4",
+      url: "https://www.youtube.com/watch?v=KCtLAqD63G4",
     },
     {
       visibly: true,
@@ -39,7 +39,7 @@ const videoPage = {
         ogg: "https://giant.gfycat.com/VerifiableTerrificHind.mp4",
       },
       name: "Аэропорты",
-      url: "KCtLAqD63G4",
+      url: "https://www.youtube.com/watch?v=KCtLAqD63G4",
     },
     {
       visibly: true,
@@ -49,7 +49,7 @@ const videoPage = {
         ogg: "https://giant.gfycat.com/VerifiableTerrificHind.mp4",
       },
       name: "Иду на красный",
-      url: "KCtLAqD63G4",
+      url: "https://www.youtube.com/watch?v=KCtLAqD63G4",
     },
     {
       visibly: true,
@@ -59,7 +59,7 @@ const videoPage = {
         ogg: "https://giant.gfycat.com/VerifiableTerrificHind.mp4",
       },
       name: "Баста",
-      url: "KCtLAqD63G4",
+      url: "https://www.youtube.com/watch?v=KCtLAqD63G4",
     },
   ],
   background: {
@@ -74,6 +74,7 @@ const videoPage = {
 const VideoPage = props => {
   const { getVideo } = props.data.marta
   console.log("getVideo", getVideo)
+
   return (
     <Layout bg={videoPage.background}>
       <div className="inner-container">

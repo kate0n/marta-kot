@@ -35,7 +35,7 @@ const ConcertPage = props => {
   console.log("getConcerts", getConcerts)
   const dateToString = formatWithOptions({ locale: ru }, "d MMMM yyyy")
   return (
-    <Layout bg={concertPage.background}>
+    <Layout bg={concertPage.background} >
       <div className="inner-container">
         <PageTitle title="Концерты" />
         <div className="concerts">

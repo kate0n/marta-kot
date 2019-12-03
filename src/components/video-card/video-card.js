@@ -3,6 +3,16 @@ import YouTube from "react-youtube"
 import IconVideoPlay from "../../images/video-play-btn.svg"
 
 const VideoCard = ({ visibly, preview, name, url }) => {
+  const getVideoId = url => {
+    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/
+    const match = url.match(regExp)
+    if (match && match[7].length == 11) {
+      return match[7]
+    } else {
+      alert("Could not extract video ID.")
+    }
+  }
+
   const videoEl = useRef(null)
 
   const [youTube, setYouTube] = useState({
@@ -48,7 +58,7 @@ const VideoCard = ({ visibly, preview, name, url }) => {
           {youTube.isPlaying && (
             <div onClick={playYouTubeVideo} style={{ height: "100%" }}>
               <YouTube
-                videoId={url}
+                videoId={getVideoId(url)}
                 opts={opts}
                 onReady={onReady}
                 onEnd={stopYouTubeVideo}
