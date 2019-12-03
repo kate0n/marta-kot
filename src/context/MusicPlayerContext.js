@@ -23,6 +23,7 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
   const [trackPlayer, setTrackPlayer] = useState({
     isTrackPlaying: false,
     track: "https://www.milannohejl.cz/subdom/codepen/Shantifax-KukuPuja.mp3",
+    currentTime: 0,
   })
 
   const request = useFetch({
@@ -31,27 +32,18 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
   })
 
   // useEffect(() => {
-  //   const defaultTrack = request.query(QUERY)
-  //     .then(({data}) => {
-  //       if(data){
-  //         setTrackPlayer({
-  //           ...trackPlayer,
-  //           track: data.getHomePage.track.url,
-  //         })
-  //       }
-  //     })
+  //   const defaultTrack = request.query(QUERY).then(({ data }) => {
+  //     if (data) {
+  //       setTrackPlayer({
+  //         ...trackPlayer,
+  //         track: data.getHomePage.track.url,
+  //       })
+  //     }
+  //   })
   // }, [])
 
   const [singlePlayer, setSinglePlayer] = useMusicState({})
 
-  // получение дефолтного трека из HomePage (?)
-  const getTrack = track => {
-    setTrackPlayer({
-      ...trackPlayer,
-      track: track,
-    })
-    console.log(track)
-  }
   let audio
 
   try {
@@ -71,8 +63,13 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
       isSinglePlaying: true,
     })
 
-    audio.src = trackPlayer.track
-
+    if (singlePlayer.single) {
+      audio.src = singlePlayer.single
+      audio.currentTime = singlePlayer.currentTime
+    } else {
+      audio.src = trackPlayer.track
+      audio.currentTime = trackPlayer.currentTime
+    }
     audio.play()
   }
 
@@ -80,6 +77,7 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
     setTrackPlayer({
       ...trackPlayer,
       isTrackPlaying: false,
+      currentTime: audio.currentTime,
     })
     setSinglePlayer({
       ...singlePlayer,
@@ -121,7 +119,6 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
     <MusicPlayerContext.Provider
       value={{
         // for track,
-        getTrack: getTrack,
         track: trackPlayer.track,
         isTrackPlaying: trackPlayer.isTrackPlaying,
         playTrack: playTrack,

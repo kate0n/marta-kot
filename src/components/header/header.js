@@ -18,12 +18,12 @@ const Header = ({ isVisibleConcert }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  menuItems = menuItems.filter((item)=>{
-    if(item.name === 'Концерты' && !isVisibleConcert){
-      return false;
+  menuItems = menuItems.filter(item => {
+    if (item.name === "Концерты" && !isVisibleConcert) {
+      return false
     }
     return true
-  });
+  })
 
   return (
     <Location>
@@ -32,24 +32,22 @@ const Header = ({ isVisibleConcert }) => {
           <header className="header">
             <div className="header_top">
               <Link to="/" className="header_logo">
-                <img src={logo} alt="logo" className="header_logo-img"/>
+                <img src={logo} alt="logo" className="header_logo-img" />
               </Link>
               <nav className="header_menu">
                 <ul>
-                  {
-                    menuItems.map((menuItem, index) => (
-                      <li
-                        className={
-                          location.pathname === menuItem.link
-                            ? "header_menu-item header_menu-item--active links"
-                            : "header_menu-item links"
-                        }
-                        key={index}
-                      >
-                        <Link to={menuItem.link}>{menuItem.name}</Link>
-                      </li>
-                    ))
-                  }
+                  {menuItems.map((menuItem, index) => (
+                    <li
+                      className={
+                        location.pathname === menuItem.link
+                          ? "header_menu-item header_menu-item--active links"
+                          : "header_menu-item links"
+                      }
+                      key={index}
+                    >
+                      <Link to={menuItem.link}>{menuItem.name}</Link>
+                    </li>
+                  ))}
                 </ul>
               </nav>
               {/* бургер */}
@@ -68,7 +66,11 @@ const Header = ({ isVisibleConcert }) => {
           {/* mobile nav */}
           <div
             className={
-              isMobileMenuOpen ? "mobile-menu mobile-menu--open" : "mobile-menu"
+              isMobileMenuOpen
+                ? isVisibleConcert
+                  ? "mobile-menu mobile-menu--open"
+                  : "mobile-menu mobile-menu--open no-concert"
+                : "mobile-menu"
             }
           >
             <nav className="mobile-menu_nav">

@@ -44,7 +44,7 @@ const VideoCard = ({ visibly, preview, name, url }) => {
   }
 
   const onReady = ({ target }) => {
-    target.pauseVideo()
+    target.playVideo()
   }
 
   return (

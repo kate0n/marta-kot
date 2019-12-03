@@ -6,7 +6,7 @@ const Head = () => {
     <Helmet>
       <meta charSet="utf-8" />
       <base href="/" />
-      <title>Марта кот</title>
+      <title>Марта Кот</title>
       <meta name="Description" content="Марта Кот" />
       <link
         rel="apple-touch-icon"
