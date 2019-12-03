@@ -3,7 +3,9 @@ import React from "react"
 const ScrollToTopHOC = WrappedComponent =>
   class ScrollTopOnMount extends React.Component {
     componentDidMount() {
-      document.body.scrollTo(0, 0)
+      if (typeof document !== "undefined") {
+        document.body.scrollTo(0, 0)
+      }
     }
 
     render() {

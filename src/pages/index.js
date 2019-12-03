@@ -45,7 +45,7 @@ const IndexPage = props => {
         <Footer {...homePage} />
       </Layout>
       {homePage.mainBanner.visibly && (
-        <Banner content={homePage.mainBanner.content} url="#" />
+        <Banner content={getHomePage.mainBanner.content} url="#" />
       )}
     </>
   )
