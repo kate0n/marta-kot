@@ -18,6 +18,7 @@
     "gatsby-plugin-typescript": "^2.1.19",
     "gatsby-source-filesystem": "^2.1.38",
     "gatsby-source-graphql": "^2.1.25",
+    "gatsby-source-graphql-universal": "^3.1.11",
     "gatsby-transformer-sharp": "^2.3.5",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
@@ -27,7 +28,8 @@
     "react-responsive-image": "^5.0.0",
     "react-responsive-picture": "^3.2.2",
     "react-ticker": "^1.2.1",
-    "react-youtube": "^7.9.0"
+    "react-youtube": "^7.9.0",
+    "use-http": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^12.12.12",
