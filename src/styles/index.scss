@@ -27,9 +27,13 @@ html {
   margin: 0;
   padding: 0;
   font-family: "GT Walsheim Pro";
-  font-weight: 600;
+  font-weight: 400;
   color: $white;
   background-color: #0e0e0e; // <- цвет фона
+}
+
+#___gatsby {
+  overflow-x: hidden;
 }
 
 .app-wrapper {
@@ -53,7 +57,10 @@ html {
   height: 100% !important;
 }
 .component-responsive-image img {
-  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .outer-container {

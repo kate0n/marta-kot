@@ -6,20 +6,27 @@ import MobileHeader from "../components/header/MobileHeader"
 import Header from "./header/header"
 import { isBrowser } from "../templates"
 import { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary"
+
 const ResponsiveImageBackground = Loadable(() =>
-  import("./ResponsiveImageBackground/ResponsiveImageBackground")
+  import("./ResponsiveImageBackground/ResponsiveImageBackground"),
 )
 
 const Layout = ({ children, bg, isVisibleConcert }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
   const toggleMobileMenu = () => {
+    const app = document.getElementById("___gatsby")
+    if(!isMobileMenuOpen){
+      console.log(app)
+    } else {
+
+    }
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
   return (
     <>
-      <Head />
+      <Head/>
       <MobileHeader
         isVisibleConcert={isVisibleConcert}
         isMobileMenuOpen={isMobileMenuOpen}
@@ -31,7 +38,7 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
         }
       >
         <ErrorBoundary>
-          {isBrowser() && <ResponsiveImageBackground bg={bg} />}
+          {isBrowser() && <ResponsiveImageBackground bg={bg}/>}
         </ErrorBoundary>
 
         <div className="outer-container">

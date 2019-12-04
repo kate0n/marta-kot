@@ -72,6 +72,7 @@ const VideoCard = ({ preview, name, url }) => {
             preload="auto"
             loop="loop"
             className="video_card_preview"
+            muted
           >
             {
               preview.mp4 &&
