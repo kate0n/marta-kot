@@ -9,17 +9,13 @@
 
 @font-face {
   font-family: "GT Walsheim Pro";
-  src: url("../../static/fonts/gt-walsheim-medium.ttf") format("opentype");
-}
-
-@font-face {
-  font-family: "GT Walsheim Pro";
-  src: url("../../static/fonts/gt-walsheim-medium.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "GT Walsheim Pro";
-  src: url("../../static/fonts/gt-walsheim-medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('GT Walsheim Pro'),
+  url("../../static/fonts/gt-walsheim-medium.ttf") format("opentype"),
+  url("../../static/fonts/gt-walsheim-medium.woff2") format("woff2"),
+  url("../../static/fonts/gt-walsheim-medium.woff") format("woff");
 }
 
 body,
