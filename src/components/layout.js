@@ -4,7 +4,7 @@ import Head from "../components/head/head"
 import MobileHeader from "../components/header/MobileHeader"
 
 import Header from "./header/header"
-import { isBrowser } from "../templates"
+import { isBrowser } from "../pages"
 import { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary"
 
 const ResponsiveImageBackground = Loadable(() =>
@@ -15,12 +15,6 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
   const toggleMobileMenu = () => {
-    const app = document.getElementById("___gatsby")
-    if(!isMobileMenuOpen){
-      console.log(app)
-    } else {
-
-    }
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 

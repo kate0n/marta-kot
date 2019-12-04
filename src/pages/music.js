@@ -13,7 +13,6 @@ import NextPageBlock from "../components/next-page-block/next-page-block"
 
 const MusicPage = props => {
   const { getMusic, getConcerts, getHomePage } = props.data.marta
-  console.log("MusicPage")
   const { isSinglePlaying, single, playSingle, pauseSingle } = useContext(
     MusicPlayerContext,
   )

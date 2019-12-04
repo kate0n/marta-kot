@@ -10,7 +10,6 @@ import PageFooter from "../components/footer/page-footer"
 
 const ConcertPage = props => {
   const { getConcerts, getHomePage } = props.data.marta
-  console.log("ConcertPage")
   const dateToString = formatWithOptions({ locale: ru }, "d MMMM yyyy")
   return (
     <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getConcerts && getConcerts.background}>

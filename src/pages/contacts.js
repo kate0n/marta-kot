@@ -8,7 +8,6 @@ import SocialButton from "../components/SocialButton/SocialButton"
 
 const ContactsPage = props => {
   const { getContacts, getHomePage, getConcerts } = props.data.marta
-  console.log("ContactsPage: ")
 
   return (
     <Layout
@@ -33,7 +32,6 @@ const ContactsPage = props => {
           {getHomePage &&
             getHomePage.socialList &&
             getHomePage.socialList.map((socialItem, index) => {
-              console.log("socialItem: ", socialItem)
               return (
                 <li key={index}>
                   <SocialButton {...socialItem} />

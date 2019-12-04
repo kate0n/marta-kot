@@ -9,7 +9,6 @@ export const isBrowser = () => typeof window !== "undefined"
 
 const IndexPage = props => {
   const { getHomePage, getConcerts } = props.data.marta
-  console.log("IndexPage")
 
   return (
     <>
