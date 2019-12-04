@@ -9,8 +9,7 @@ import SocialButton from "../components/SocialButton/SocialButton"
 
 const ContactsPage = props => {
   const { getContacts, getHomePage, getConcerts } = props.data.marta
-  console.log("ContactsPage: ", getContacts)
-  console.log("ContactsPage: ", getHomePage)
+  console.log("ContactsPage: ")
 
   return (
     <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getContacts && getContacts.background}>

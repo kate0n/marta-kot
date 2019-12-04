@@ -11,7 +11,7 @@ import PageFooter from "../components/footer/page-footer"
 
 const VideoPage = props => {
   const { getVideo, getConcerts, getHomePage } = props.data.marta
-  console.log("getVideo", getVideo)
+  console.log("VideoPage")
 
   return (
     <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getVideo && getVideo.background}>
