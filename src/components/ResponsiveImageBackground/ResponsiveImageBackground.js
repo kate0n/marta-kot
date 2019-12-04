@@ -12,11 +12,9 @@ const ResponsiveImageBackground = ({ bg }) => {
   )
 }
 
-{
-  /* <ResponsiveImageSize default minWidth={0} path={bg.xs.url} />
+/* <ResponsiveImageSize default minWidth={0} path={bg.xs.url} />
 <ResponsiveImageSize minWidth={1024} path={bg.sm.url} />
 <ResponsiveImageSize minWidth={1440} path={bg.md.url} />
 <ResponsiveImageSize minWidth={1600} path={bg.lg.url} /> */
-}
 
 export default ResponsiveImageBackground
