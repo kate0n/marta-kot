@@ -15,11 +15,14 @@ const SigleCard = ({
     visibly && (
       <div className="single-card_wrapper">
         <div
-          style={{
-            // backgroundImage: `url(${MusicPlaceholder})`
-          }}
-          className="single-card">
-          <img src={image} alt="" className="single-card-img" />
+          style={
+            {
+              // backgroundImage: `url(${MusicPlaceholder})`
+            }
+          }
+          className="single-card"
+        >
+          <img src={image.lg.url} alt="" className="single-card-img" />
           <div
             className="single-card_overlay"
             onClick={isPlaying ? pauseSingle : playSingle}
