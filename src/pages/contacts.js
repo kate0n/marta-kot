@@ -13,20 +13,22 @@ const ContactsPage = props => {
   console.log("ContactsPage: ", getHomePage)
 
   return (
-    <Layout isVisibleConcert={getConcerts.visibly} bg={getContacts.background}>
+    <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getContacts && getContacts.background}>
       <div className="inner-container">
         <PageTitle title="Контакты"/>
         <div className="contacts">
           <h3 className="contacts_mail title_h3">
-            <a href={`mailto:${getContacts.email}`}>{getContacts.email}</a>
+            <a href={`mailto:${getContacts && getContacts.email}`}>{getContacts && getContacts.email}</a>
           </h3>
           <h2 className="contacts_tel title_h2">
-            <a href={`tel:${getContacts.phone}`}>{getContacts.phone}</a>
+            <a href={`tel:${getContacts && getContacts.phone}`}>{getContacts && getContacts.phone}</a>
           </h2>
         </div>
         <ul className="contacts_social-buttons footer_social-buttons">
           {
-            getHomePage.socialList.map((socialItem, index) => {
+            getHomePage
+            && getHomePage.socialList
+            && getHomePage.socialList.map((socialItem, index) => {
               console.log("socialItem: ", socialItem)
               return (
                 <li key={index}>
