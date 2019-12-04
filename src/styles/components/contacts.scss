@@ -16,6 +16,11 @@
     }
   }
 
+  &_tel {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
   &_social-buttons {
     margin-bottom: 60px;
   }
@@ -33,6 +38,18 @@
 
     &_social-buttons {
       margin-bottom: 20px;
+    }
+
+    &_tel {
+      font-size: 38px;
+      line-height: 46px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    &_tel {
+      font-size: 34px;
+      line-height: 42px;
     }
   }
 }

@@ -30,7 +30,8 @@
 
   @media (max-width: $breakpoint) {
     justify-content: center;
-    bottom: 88px;
+    // bottom: 88px;
+    bottom: 152px;
   }
 }
 
@@ -38,6 +39,7 @@
   bottom: 56px;
   @media (max-width: $breakpoint) {
     bottom: 24px;
+    bottom: 88x;
   }
 }
 
@@ -76,7 +78,8 @@
     transition: 0.2s all;
 
     &:hover {
-      filter: invert(73%) sepia(97%) saturate(1938%) hue-rotate(81deg) brightness(201%) contrast(109%);
+      filter: invert(73%) sepia(97%) saturate(1938%) hue-rotate(81deg)
+        brightness(201%) contrast(109%);
     }
   }
 
@@ -116,7 +119,7 @@
     height: 48px;
     top: 0;
     left: 0;
-    transition: all .225s;
+    transition: all 0.225s;
   }
   .social_button-idle-img {
     opacity: 1;
@@ -124,7 +127,7 @@
 
   &:hover {
     .social_button-idle-img {
-      opacity: 0
+      opacity: 0;
     }
   }
 
@@ -137,5 +140,4 @@
       opacity: 1;
     }
   }
-
 }
