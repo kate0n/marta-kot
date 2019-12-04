@@ -8,10 +8,15 @@
 import "./src/styles/index.scss"
 
 import React from "react"
+import { ApolloProvider } from "@apollo/react-hooks"
+
 import { MusicPlayerProvider } from "./src/context/MusicPlayerContext"
+import { Client } from "./src/apollo/wrap-root-element"
 
 export const wrapRootElement = ({ element }) => (
-  <MusicPlayerProvider>{element}</MusicPlayerProvider>
+  <ApolloProvider client={Client}>
+    <MusicPlayerProvider>{element}</MusicPlayerProvider>
+  </ApolloProvider>
 )
 
 if (typeof document !== `undefined`) {

@@ -8,14 +8,78 @@ import ButtonMore from "../components/button-more/button-more"
 import PageFooter from "../components/footer/page-footer"
 import MusicPlayerContext from "../context/MusicPlayerContext"
 import NextPageBlock from "../components/next-page-block/next-page-block"
+import gql from "graphql-tag"
+import { useClientQuery } from "../libs/useClientQuery"
 
-
+const clientQuery = gql`
+    {
+        getConcerts {
+            updateAt
+            visibly
+        }
+        getHomePage {
+            updateAt
+            socialList {
+                name
+                url
+                hoverIcon{
+                    url
+                }
+                image {
+                    url
+                }
+            }
+        }
+        getMusic {
+            updateAt
+            background {
+                xs {
+                    url
+                }
+                sm {
+                    url
+                }
+                md {
+                    url
+                }
+                lg {
+                    url
+                }
+            }
+            moreMusicUrl
+            singles {
+                name
+                image {
+                    xs {
+                        url
+                    }
+                    sm {
+                        url
+                    }
+                    md {
+                        url
+                    }
+                    lg {
+                        url
+                    }
+                }
+                track {
+                    url
+                }
+                visibly
+            }
+        }
+    }
+`
 
 const MusicPage = props => {
-  const { getMusic, getConcerts, getHomePage } = props.data.marta
+  let { getMusic, getConcerts, getHomePage } = useClientQuery(props.data.marta, clientQuery, [
+    "getMusic", "getConcerts", "getHomePage",
+  ])
   const { isSinglePlaying, single, playSingle, pauseSingle } = useContext(
     MusicPlayerContext,
   )
+
 
   return (
     <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getMusic && getMusic.background}>
@@ -45,8 +109,10 @@ export const pageQuery = graphql`
         marta {
             getConcerts {
                 visibly
+                updateAt
             }
             getHomePage {
+                updateAt
                 socialList {
                     name
                     url
@@ -59,6 +125,7 @@ export const pageQuery = graphql`
                 }
             }
             getMusic {
+                updateAt
                 background {
                     xs {
                         url
