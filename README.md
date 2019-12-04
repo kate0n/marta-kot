@@ -1,3 +1,28 @@
+
+
+
+
+## Запуск сборки одной страницы
+
+REBUILD_PAGES="pageName" yarn build
+## Запуск сборки нескольких страниц
+
+REBUILD_PAGES="pageName,pageName" yarn build
+
+## добавить адрес сервера бекенда
+
+в файлах .env.* две переменные 
+ENDPOINT_PORT
+ENDPOINT_URL
+
+либо:
+ENDPOINT_PORT=3000 ENDPOINT_URL=http://127.0.0.1: yarn build
+
+
+
+
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
