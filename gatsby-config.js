@@ -1,3 +1,11 @@
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+console.log('process.env.ENDPOINT_URL: ',process.env.ENDPOINT_URL)
+console.log('process.env.ENDPOINT_PORT: ',process.env.ENDPOINT_PORT)
+console.log('process.env.ENDPOINT_test: ',process.env.ENDPOINT_test)
+console.log('process.env.ENDPOINT_URL+process.env.ENDPOINT_PORT+"/graphql": ', process.env.ENDPOINT_URL+process.env.ENDPOINT_PORT+"/graphql")
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -48,7 +56,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: "marta",
         // URL to query from
-        url: "https://martakot.expanse.systems/graphql",
+        url: process.env.ENDPOINT_URL+process.env.ENDPOINT_PORT+"/graphql",
       },
     },
     `gatsby-plugin-react-helmet`,
