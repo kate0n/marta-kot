@@ -6,13 +6,10 @@ import SocialButton from "../SocialButton/SocialButton"
 const PageFooter = ({ socialList }) => (
   <footer className="page-footer">
     <div className="page-footer_share-container">
-      {/* <img className="page-footer_share" src={IconShare} alt="share" /> */}
       <ul className="page-footer_social-buttons">
         {socialList.map((socialItem, index) => (
           <li key={index}>
-            <SocialButton
-              {...socialItem}
-            />
+            <SocialButton {...socialItem} />
           </li>
         ))}
       </ul>

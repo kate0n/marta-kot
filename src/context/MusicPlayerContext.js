@@ -32,16 +32,20 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
   })
 
   useEffect(() => {
-    void request.query(QUERY)
-      .then((response) => {
-        if (response && response.data && response.data.getHomePage && response.data.getHomePage.track) {
-          setTrackPlayer({
-            ...trackPlayer,
-            track: response.data.getHomePage.track.url,
-          })
-        }
-        return response;
-      })
+    void request.query(QUERY).then(response => {
+      if (
+        response &&
+        response.data &&
+        response.data.getHomePage &&
+        response.data.getHomePage.track
+      ) {
+        setTrackPlayer({
+          ...trackPlayer,
+          track: response.data.getHomePage.track.url,
+        })
+      }
+      return response
+    })
   }, [])
 
   const [singlePlayer, setSinglePlayer] = useMusicState({})
@@ -64,11 +68,12 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
       ...singlePlayer,
       isSinglePlaying: true,
     })
-
+    // если играл сингл, продолжает играть сингл с нужного времени
     if (singlePlayer.single) {
       audio.src = singlePlayer.single
       audio.currentTime = singlePlayer.currentTime
     } else {
+      // если не играл сингл -> играет дефолт
       audio.src = trackPlayer.track
       audio.currentTime = trackPlayer.currentTime
     }
@@ -90,7 +95,6 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
   }
 
   const playSingle = single => {
-    // debugger
     setTrackPlayer({
       ...trackPlayer,
       isTrackPlaying: false,
@@ -108,7 +112,6 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
   }
 
   const pauseSingle = () => {
-    // debugger
     setSinglePlayer({
       ...singlePlayer,
       isSinglePlaying: false,

@@ -26,8 +26,8 @@ const MusicPage = props => {
           {getMusic && getMusic.singles && getMusic.singles.map((singleItem, index) => (
             <SingleCard
               {...singleItem}
-              isPlaying={singleItem.track === single ? isSinglePlaying : false}
-              playSingle={() => playSingle(singleItem.track)}
+              isPlaying={singleItem.track.url === single ? isSinglePlaying : false}
+              playSingle={() => playSingle(singleItem.track.url)}
               pauseSingle={() => pauseSingle()}
               key={index}
             />
