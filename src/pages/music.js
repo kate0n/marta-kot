@@ -19,11 +19,11 @@ const MusicPage = props => {
   )
 
   return (
-    <Layout isVisibleConcert={getConcerts.visibly} bg={getMusic.background}>
+    <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getMusic && getMusic.background}>
       <div className="inner-container">
         <PageTitle title="Музыка"/>
         <div className="music">
-          {getMusic.singles.map((singleItem, index) => (
+          {getMusic && getMusic.singles && getMusic.singles.map((singleItem, index) => (
             <SingleCard
               {...singleItem}
               isPlaying={singleItem.track.url === single ? isSinglePlaying : false}
@@ -33,10 +33,10 @@ const MusicPage = props => {
             />
           ))}
         </div>
-        <ButtonMore title="Больше музыки" moreUrl={getMusic.moreMusicUrl}/>
+        <ButtonMore title="Больше музыки" moreUrl={getMusic && getMusic.moreMusicUrl}/>
         <NextPageBlock link="/contacts" title="Контакты"/>
       </div>
-      <PageFooter socialList={getHomePage.socialList}/>
+      <PageFooter socialList={getHomePage && getHomePage.socialList}/>
     </Layout>
   )
 }

@@ -14,7 +14,7 @@ const VideoPage = props => {
   console.log("getVideo", getVideo)
 
   return (
-    <Layout isVisibleConcert={getConcerts.visibly} bg={getVideo.background}>
+    <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getVideo && getVideo.background}>
       <div className="inner-container">
         <PageTitle title="Видео"/>
         <div className="video">
@@ -24,10 +24,10 @@ const VideoPage = props => {
           ))
           }
         </div>
-        <ButtonMore title="Больше видео" moreUrl={getVideo.moreVideosUrl}/>
+        <ButtonMore title="Больше видео" moreUrl={getVideo && getVideo.moreVideosUrl}/>
         <NextPageBlock link="/music" title="Музыка"/>
       </div>
-      <PageFooter socialList={getHomePage.socialList}/>
+      <PageFooter socialList={getHomePage && getHomePage.socialList}/>
     </Layout>
   )
 }
