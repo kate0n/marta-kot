@@ -2,6 +2,9 @@ import React from "react"
 import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
 
 const ResponsiveImageBackground = ({ bg }) => {
+  if(!bg){
+    return null;
+  }
   return (
     <ResponsiveImage>
       <ResponsiveImageSize default minWidth={0} path={bg.xs && bg.xs.url} />
