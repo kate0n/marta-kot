@@ -4,7 +4,7 @@ import Head from "../components/head/head"
 import MobileHeader from "../components/header/MobileHeader"
 
 import Header from "./header/header"
-import { isBrowser } from "../pages"
+import { isBrowser } from "../templates"
 import { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary"
 const ResponsiveImageBackground = Loadable(() =>
   import("./ResponsiveImageBackground/ResponsiveImageBackground")
