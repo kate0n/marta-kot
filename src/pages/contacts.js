@@ -4,41 +4,18 @@ import ScrollToTopHOC from "../components/scrollToTopHOC/scrollToTopHOC"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
 import PlayMusicButton from "../components/play-music-button/play-music-button"
+import SocialButton from "../components/SocialButton/SocialButton"
 
-//временные
-import IconYoutube from "../images/Youtube.svg"
-import IconFacebook from "../images/facebook.svg"
-import IconInstagram from "../images/insta.svg"
-import IconVK from "../images/vk.svg"
-import IconOK from "../images/ok.svg"
-const SocialNetwork = [
-  { image: IconYoutube, url: "YouTube" },
-  { image: IconFacebook, url: "Facebook" },
-  { image: IconInstagram, url: "Instagram" },
-  { image: IconVK, url: "VK" },
-  { image: IconOK, url: "OK" },
-]
-const contactsPage = {
-  phone: "+7 903 158-68-29",
-  email: "pr@martakot.com",
-  background: {
-    xs: "/images/contactspage-bg-768.jpg",
-    sm: "/images/contactspage-bg-1024.jpg",
-    md: "/images/contactspage-bg-1440.jpg",
-    lg: "/images/contactspage-bg-fullsize.jpg",
-  },
-}
-//временные
 
 const ContactsPage = props => {
-  const { getContacts, getHomePage } = props.data.marta
+  const { getContacts, getHomePage, getConcerts } = props.data.marta
   console.log("ContactsPage: ", getContacts)
   console.log("ContactsPage: ", getHomePage)
 
   return (
-    <Layout bg={contactsPage.background}>
+    <Layout isVisibleConcert={getConcerts.visibly} bg={getContacts.background}>
       <div className="inner-container">
-        <PageTitle title="Контакты" />
+        <PageTitle title="Контакты"/>
         <div className="contacts">
           <h3 className="contacts_mail title_h3">
             <a href={`mailto:${getContacts.email}`}>{getContacts.email}</a>
@@ -48,18 +25,18 @@ const ContactsPage = props => {
           </h2>
         </div>
         <ul className="contacts_social-buttons footer_social-buttons">
-          {SocialNetwork.map((socialItem, index) => (
-            <li key={index}>
-              <a
-                className="social_button"
-                target={"_blank"}
-                rel="noopener"
-                href={socialItem.url}
-              >
-                <img src={socialItem.image} alt="" />
-              </a>
-            </li>
-          ))}
+          {
+            getHomePage.socialList.map((socialItem, index) => {
+              console.log("socialItem: ", socialItem)
+              return (
+                <li key={index}>
+                  <SocialButton
+                    {...socialItem}
+                  />
+                </li>
+              )
+            })
+          }
         </ul>
         <p className="contacts_copyright text">
           2019 © Марта Кот. Сделано в{" "}
@@ -73,44 +50,50 @@ const ContactsPage = props => {
         </p>
       </div>
       <div className="contacts_play-music-button">
-        <PlayMusicButton />
+        <PlayMusicButton/>
       </div>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  {
-    marta {
-      getContacts {
-        phone
-        email
-        background {
-          xs {
-            url
-          }
-          sm {
-            url
-          }
-          md {
-            url
-          }
-          lg {
-            url
-          }
+    {
+        marta {
+            getConcerts {
+                visibly
+            }
+            getContacts {
+                phone
+                email
+                background {
+                    xs {
+                        url
+                    }
+                    sm {
+                        url
+                    }
+                    md {
+                        url
+                    }
+                    lg {
+                        url
+                    }
+                }
+            }
+            getHomePage {
+                socialList {
+                    name
+                    url
+                    hoverIcon{
+                        url
+                    }
+                    image {
+                        url
+                    }
+                }
+            }
         }
-      }
-      getHomePage {
-        socialList {
-          name
-          url
-          image {
-            url
-          }
-        }
-      }
     }
-  }
 `
 
 export default ScrollToTopHOC(ContactsPage)
