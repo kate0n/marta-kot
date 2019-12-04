@@ -1,6 +1,7 @@
 import React from "react"
 import PlayMusicButton from "../play-music-button/play-music-button"
 import IconShare from "../../images/share.svg"
+import SocialButton from "../SocialButton/SocialButton"
 
 const PageFooter = ({ socialList }) => (
   <footer className="page-footer">
@@ -9,14 +10,9 @@ const PageFooter = ({ socialList }) => (
       <ul className="page-footer_social-buttons">
         {socialList.map((socialItem, index) => (
           <li key={index}>
-            <a
-              className="social_button"
-              target={"_blank"}
-              rel="noopener"
-              href={socialItem.url}
-            >
-              <img src={socialItem.image} alt={socialItem.name} />
-            </a>
+            <SocialButton
+              {...socialItem}
+            />
           </li>
         ))}
       </ul>

@@ -9,7 +9,7 @@ import IconFacebook from "../images/facebook.svg"
 import IconInstagram from "../images/insta.svg"
 import IconVK from "../images/vk.svg"
 import IconOK from "../images/ok.svg"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 export const isBrowser = () => typeof window !== "undefined"
 const homePage = {
@@ -41,12 +41,14 @@ const IndexPage = props => {
 
   return (
     <>
-      <Layout isVisibleConcert={getConcerts.visibly} bg={homePage.background}>
-        <Footer {...homePage} />
+      <Layout isVisibleConcert={getConcerts.visibly} bg={getHomePage.background}>
+        <Footer {...getHomePage} />
       </Layout>
-      {homePage.mainBanner.visibly && (
-        <Banner content={getHomePage.mainBanner.content} url="#" />
-      )}
+      {
+        homePage.mainBanner.visibly && (
+          <Banner content={getHomePage.mainBanner.content} url="#"/>
+        )
+      }
     </>
   )
 }
@@ -54,41 +56,44 @@ const IndexPage = props => {
 export default IndexPage
 
 export const pageQuery = graphql`
-  {
-    marta {
-      getConcerts {
-        visibly
-      }
-      getHomePage {
-        background {
-          xs {
-            url
-          }
-          sm {
-            url
-          }
-          md {
-            url
-          }
-          lg {
-            url
-          }
+    {
+        marta {
+            getConcerts {
+                visibly
+            }
+            getHomePage {
+                background {
+                    xs {
+                        url
+                    }
+                    sm {
+                        url
+                    }
+                    md {
+                        url
+                    }
+                    lg {
+                        url
+                    }
+                }
+                track {
+                    url
+                }
+                mainBanner {
+                    content
+                    visibly
+                }
+                socialList {
+                    name
+                    url
+                    hoverIcon{
+                        url
+                    }
+                    image {
+                        url
+                    }
+                }
+            }
         }
-        track {
-          url
-        }
-        mainBanner {
-          content
-          visibly
-        }
-        socialList {
-          name
-          url
-          image {
-            url
-          }
-        }
-      }
     }
-  }
 `

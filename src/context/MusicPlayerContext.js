@@ -31,16 +31,18 @@ const MusicPlayerProvider = ({ children, data, graphql }) => {
     // mode: 'cors'
   })
 
-  // useEffect(() => {
-  //   const defaultTrack = request.query(QUERY).then(({ data }) => {
-  //     if (data) {
-  //       setTrackPlayer({
-  //         ...trackPlayer,
-  //         track: data.getHomePage.track.url,
-  //       })
-  //     }
-  //   })
-  // }, [])
+  useEffect(() => {
+    void request.query(QUERY)
+      .then((response) => {
+        if (response && response.data && response.data.getHomePage && response.data.getHomePage.track) {
+          setTrackPlayer({
+            ...trackPlayer,
+            track: response.data.getHomePage.track.url,
+          })
+        }
+        return response;
+      })
+  }, [])
 
   const [singlePlayer, setSinglePlayer] = useMusicState({})
 

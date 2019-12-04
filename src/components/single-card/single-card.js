@@ -14,7 +14,11 @@ const SigleCard = ({
   return (
     visibly && (
       <div className="single-card_wrapper">
-        <div className="single-card">
+        <div
+          style={{
+            // backgroundImage: `url(${MusicPlaceholder})`
+          }}
+          className="single-card">
           <img src={image} alt="" className="single-card-img" />
           <div
             className="single-card_overlay"
