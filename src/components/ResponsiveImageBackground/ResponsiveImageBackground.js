@@ -2,8 +2,8 @@ import React from "react"
 import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image"
 
 const ResponsiveImageBackground = ({ bg }) => {
-  if(!bg){
-    return null;
+  if (!bg) {
+    return null
   }
   return (
     <ResponsiveImage>

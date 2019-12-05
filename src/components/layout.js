@@ -8,7 +8,7 @@ import { isBrowser } from "../pages"
 import { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary"
 
 const ResponsiveImageBackground = Loadable(() =>
-  import("./ResponsiveImageBackground/ResponsiveImageBackground"),
+  import("./ResponsiveImageBackground/ResponsiveImageBackground")
 )
 
 const Layout = ({ children, bg, isVisibleConcert }) => {
@@ -18,9 +18,21 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
+  React.useEffect(() => {
+    document.documentElement.style.setProperty(
+      "—vh",
+      `${window.innerHeight * 0.01}px`
+    )
+    isBrowser() &&
+      window.addEventListener("resize", () => {
+        let vh = window.innerHeight * 0.01
+        document.documentElement.style.setProperty("--vh", `${vh}px`)
+      })
+  }, [])
+
   return (
     <>
-      <Head/>
+      <Head />
       <MobileHeader
         isVisibleConcert={isVisibleConcert}
         isMobileMenuOpen={isMobileMenuOpen}
@@ -32,7 +44,7 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
         }
       >
         <ErrorBoundary>
-          {isBrowser() && <ResponsiveImageBackground bg={bg}/>}
+          {isBrowser() && <ResponsiveImageBackground bg={bg} />}
         </ErrorBoundary>
 
         <div className="outer-container">

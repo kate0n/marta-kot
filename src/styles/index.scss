@@ -12,10 +12,10 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('GT Walsheim Pro'),
-  url("../../static/fonts/gt-walsheim-medium.ttf") format("opentype"),
-  url("../../static/fonts/gt-walsheim-medium.woff2") format("woff2"),
-  url("../../static/fonts/gt-walsheim-medium.woff") format("woff");
+  src: local("GT Walsheim Pro"),
+    url("../../static/fonts/gt-walsheim-medium.ttf") format("opentype"),
+    url("../../static/fonts/gt-walsheim-medium.woff2") format("woff2"),
+    url("../../static/fonts/gt-walsheim-medium.woff") format("woff");
 }
 
 body,
@@ -52,10 +52,6 @@ html {
   }
 }
 
-.component-responsive-image,
-.component-responsive-image-size {
-  height: 100% !important;
-}
 .component-responsive-image img {
   position: absolute;
   top: 0;
@@ -66,12 +62,16 @@ html {
 .outer-container {
   padding: 48px 56px 56px 56px;
   min-height: 100vh;
+  // min-height: calc(var(--vh, 1vh) * 100);
   position: relative;
   width: 100vw;
-  // padding-bottom: 88px;
 
   @media (max-width: 768px) {
     padding: 24px;
+  }
+
+  @media (max-width: $breakpoint) {
+    min-height: calc(100vh - 70px);
   }
 }
 
@@ -187,12 +187,15 @@ html {
   .component-responsive-image-size {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    //height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+    // height: calc(100vh - 60px);
     overflow: hidden;
   }
   img {
     object-fit: cover;
     height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     max-width: 100%;
   }
 }

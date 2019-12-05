@@ -12,7 +12,7 @@
   position: absolute;
   left: 56px;
   right: 56px;
-  bottom: 152px;
+  bottom: 152px; // 96px banner + 56px отступ от баннера
 
   &_social-buttons {
     display: flex;
@@ -30,8 +30,7 @@
 
   @media (max-width: $breakpoint) {
     justify-content: center;
-    // bottom: 88px;
-    bottom: 152px;
+    bottom: 84px;
   }
 }
 
@@ -39,7 +38,6 @@
   bottom: 56px;
   @media (max-width: $breakpoint) {
     bottom: 24px;
-    bottom: 88x;
   }
 }
 
