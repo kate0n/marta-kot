@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  position: fixed; // для скрола на ios
+  position: fixed; //для скрола на ios
 }
 
 #___gatsby {
@@ -192,8 +192,7 @@ body {
 .component-responsive-image img {
   min-height: calc(var(--vh, 1vh) * 100);
   object-fit: cover;
-  // max-width: 100%;
-  min-width: 100%; // на всю ширину было max-width
+  min-width: 100%; // на всю ширину, было max-width
   position: fixed;
   top: 0;
   left: 50%;
