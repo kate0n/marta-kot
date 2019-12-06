@@ -193,7 +193,7 @@ html {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 100vw;
+
     min-height: 100vh;
     max-height: 140vh;
     @media (min-width: 768px) {
@@ -201,6 +201,9 @@ html {
     }
     @media (min-width: 1024px) {
 
+    }
+    @media (min-width: 1300px) {
+      max-width: 100vw;
     }
 
   }
