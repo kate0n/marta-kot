@@ -8,7 +8,7 @@ import { isBrowser } from "../pages"
 import { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary"
 
 const ResponsiveImageBackground = Loadable(() =>
-  import("./ResponsiveImageBackground/ResponsiveImageBackground"),
+  import("./ResponsiveImageBackground/ResponsiveImageBackground")
 )
 
 const Layout = ({ children, bg, isVisibleConcert }) => {
@@ -20,7 +20,7 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
 
   return (
     <>
-      <Head/>
+      <Head />
       <MobileHeader
         isVisibleConcert={isVisibleConcert}
         isMobileMenuOpen={isMobileMenuOpen}
@@ -32,7 +32,7 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
         }
       >
         <ErrorBoundary>
-          {isBrowser() && <ResponsiveImageBackground bg={bg}/>}
+          {isBrowser() && <ResponsiveImageBackground bg={bg} />}
         </ErrorBoundary>
 
         <div className="outer-container">
