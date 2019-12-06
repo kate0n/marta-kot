@@ -9,11 +9,10 @@
 
 .footer {
   @include footer-base;
-  position: absolute;
+  position: fixed;
   left: 56px;
   right: 56px;
   bottom: 152px; // 96px banner + 56px отступ от баннера
-
   &_social-buttons {
     display: flex;
 

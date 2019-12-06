@@ -55,11 +55,12 @@ html {
 
 .outer-container {
   padding: 48px 56px 56px 56px;
-  min-height: calc(100vh - 70px);
+  //min-height: 100vh;
   position: relative;
   width: 100vw;
 
   @media (max-width: 768px) {
+    //min-height: calc(100vh - 70px);
     padding: 24px;
   }
 
