@@ -27,14 +27,16 @@
     text-align: right;
     position: fixed;
     right: 56px;
-
+    &-item {
+      &:hover {
+        color: $main;
+      }
+    }
     &-item:not(:last-child) {
       margin-bottom: 16px;
       // height: 27px;
 
-      &:hover {
-        color: $main;
-      }
+
     }
 
     &-item--active {
