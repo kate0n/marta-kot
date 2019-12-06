@@ -18,18 +18,6 @@ const Layout = ({ children, bg, isVisibleConcert }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  React.useEffect(() => {
-    let vh = window.innerHeight * 0.01
-    document.documentElement.style.setProperty("—vh", `${vh}px`)
-    console.log("first vh", vh)
-    isBrowser() &&
-      window.addEventListener("resize", () => {
-        let vh = window.innerHeight * 0.01
-        console.log("resize vh", vh)
-        document.documentElement.style.setProperty("--vh", `${vh}px`)
-      })
-  }, [])
-
   return (
     <>
       <Head />

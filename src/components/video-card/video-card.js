@@ -2,8 +2,7 @@ import React, { useState, useRef } from "react"
 import YouTube from "react-youtube"
 import IconVideoPlay from "../../images/video-play-btn.svg"
 
-const VideoCard = ({ preview, name, url }) => {
-
+const VideoCard = ({ previewImage, preview, name, url }) => {
   const getVideoId = url => {
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/
     const match = url.match(regExp)
@@ -74,18 +73,27 @@ const VideoCard = ({ preview, name, url }) => {
             className="video_card_preview"
             muted
           >
-            {
-              preview.mp4 &&
-              <source src={preview.mp4.url} type="video/mp4" />
-            }
-            {
-              preview.ogg &&
-              <source src={preview.ogg.url} type="video/ogg" />
-            }
-            {
-              preview.webm &&
-              <source src={preview.webm.url} type="video/webm" />
-            }
+            {preview.mp4 && (
+              <source
+                src={preview.mp4.url}
+                poster={previewImage.lg.url}
+                type="video/mp4"
+              />
+            )}
+            {preview.ogg && (
+              <source
+                src={preview.ogg.url}
+                poster={previewImage.lg.url}
+                type="video/ogg"
+              />
+            )}
+            {preview.webm && (
+              <source
+                src={preview.webm.url}
+                poster={previewImage.lg.url}
+                type="video/webm"
+              />
+            )}
           </video>
         )}
         {/* overlay, play btn */}

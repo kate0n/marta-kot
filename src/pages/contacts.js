@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import ScrollToTopHOC from "../components/scrollToTopHOC/scrollToTopHOC"
 import Layout from "../components/layout"
 import PageTitle from "../components/page-title/page-title"
@@ -64,12 +64,16 @@ const ContactsPage = props => {
         <PageTitle title="Контакты"/>
         <div className="contacts">
           <h3 className="contacts_mail title_h3">
-            <a href={`mailto:${getContacts && getContacts.email}`}>
+            <a
+              aria-label="email"
+              href={`mailto:${getContacts && getContacts.email}`}>
               {getContacts && getContacts.email}
             </a>
           </h3>
           <h2 className="contacts_tel">
-            <a href={`tel:${getContacts && getContacts.phone}`}>
+            <a
+              aria-label="phone"
+              href={`tel:${getContacts && getContacts.phone}`}>
               {getContacts && getContacts.phone}
             </a>
           </h2>
@@ -88,6 +92,7 @@ const ContactsPage = props => {
         <p className="contacts_copyright text">
           2019 © Марта Кот. Сделано в{" "}
           <a
+            aria-label="developer"
             target="_blank"
             rel="noopener noreferrer"
             href="https://expanse.systems/"

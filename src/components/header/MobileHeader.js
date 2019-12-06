@@ -11,10 +11,10 @@ let menuItems = [
 ]
 
 const MobileHeader = ({
-  isVisibleConcert,
-  isMobileMenuOpen,
-  toggleMobileMenu,
-}) => {
+                        isVisibleConcert,
+                        isMobileMenuOpen,
+                        toggleMobileMenu,
+                      }) => {
   menuItems = menuItems.filter(item => {
     if (item.name === "Концерты" && !isVisibleConcert) {
       return false
@@ -32,7 +32,7 @@ const MobileHeader = ({
       <header className="header header_mobile">
         <div className="header_top header_top-mobile">
           <Link to="/" className="header_logo">
-            <img src={logo} alt="logo" className="header_logo-img" />
+            <img src={logo} alt="logo" className="header_logo-img"/>
           </Link>
           {/* бургер */}
           <div
@@ -53,7 +53,7 @@ const MobileHeader = ({
           <ul>
             {menuItems.map((menuItem, index) => (
               <li className="header_menu-item" key={index}>
-                <Link to={menuItem.link} onClick={toggleMobileMenu}>
+                <Link aria-label="menu link" to={menuItem.link} onClick={toggleMobileMenu}>
                   {menuItem.name}
                 </Link>
               </li>

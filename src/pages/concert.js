@@ -70,6 +70,7 @@ const ConcertPage = props => {
               .filter(item => item.visibly === true)
               .map((concert, index) => (
                 <a
+                  aria-label="concert link"
                   href={concert.url}
                   target="_blank"
                   rel="noopener noreferrer"
