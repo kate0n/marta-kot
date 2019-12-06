@@ -55,13 +55,15 @@ html {
 
 .outer-container {
   padding: 48px 56px 56px 56px;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   position: relative;
   width: 100vw;
-  // padding-bottom: 88px;
 
   @media (max-width: 768px) {
     padding: 24px;
+  }
+
+  @media (max-width: $breakpoint) {
   }
 }
 
@@ -179,7 +181,7 @@ html {
   .component-responsive-image-size {
     display: flex;
     justify-content: center;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 70px);
     overflow: hidden;
     @media (min-width: 768px) {
       height: 100vh;

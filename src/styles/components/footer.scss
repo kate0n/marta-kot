@@ -12,8 +12,7 @@
   position: absolute;
   left: 56px;
   right: 56px;
-  bottom: 152px;
-  background-color: red;
+  bottom: 152px; // 96px banner + 56px отступ от баннера
 
   &_social-buttons {
     display: flex;
@@ -40,7 +39,6 @@
   bottom: 56px;
   @media (max-width: $breakpoint) {
     bottom: 24px;
-    bottom: 88x;
   }
 }
 
