@@ -72,7 +72,6 @@ const VideoPage = props => {
     clientQuery,
     ["getVideo", "getConcerts", "getHomePage"]
   )
-
   return (
     <Layout
       isVisibleConcert={getConcerts && getConcerts.visibly}
@@ -136,7 +135,11 @@ export const pageQuery = graphql`
         moreVideosUrl
         videos {
           visibly
-          # previewImage
+          previewImage {
+            lg {
+              url
+            }
+          }
           preview {
             mp4 {
               url
