@@ -8,13 +8,13 @@
 
   &_card-wrapper {
     width: 448px;
-    height: 264px;
+    min-height: 264px;
     margin: 0 16px 120px 16px;
     @media (min-width: 768px) {
-      height: 350px;
+      min-height: 350px;
     }
     @media (min-width: 1200px) {
-      height: 264px;
+      min-height: 264px;
     }
     &:hover {
       color: $main;
@@ -33,10 +33,10 @@
       object-fit: cover;
 
       @media (min-width: 768px) {
-        height: 350px;
+        min-height: 350px;
       }
       @media (min-width: 1200px) {
-        height: 264px;
+        min-height: 264px;
       }
     }
 
@@ -54,6 +54,7 @@
     }
 
     &-overlay {
+      height: 100%;
       z-index: 10;
       position: absolute;
       top: 0;
@@ -63,10 +64,10 @@
       transition: $transition;
 
       @media (min-width: 768px) {
-        height: 350px;
+        min-height: 350px;
       }
       @media (min-width: 1200px) {
-        height: 264px;
+        min-height: 264px;
       }
       &:hover {
         background: linear-gradient(
@@ -78,7 +79,7 @@
     }
 
     &_youtube {
-      height: 100%;
+      min-height: 100%;
       iframe {
         height: 264px;
         @media (min-width: 768px) {
@@ -106,20 +107,20 @@
 
     &_card-wrapper {
       width: 100%;
-      height: 264px;
+      min-height: 264px;
       margin: 0 0 88px 0;
     }
 
-    &_card {
-      width: 100%;
-    }
+    // &_card {
+    //   width: 100%;
+    // }
 
     &_card_preview {
-      height: 264px;
+      min-height: 264px;
     }
 
     &_card-overlay {
-      height: 264px;
+      min-height: 264px;
     }
   }
 }
