@@ -71,28 +71,13 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
             preload="auto"
             loop="loop"
             className="video_card_preview"
+            poster={previewImage.lg && previewImage.lg.url}
             muted
           >
-            {preview.mp4 && (
-              <source
-                src={preview.mp4.url}
-                poster={previewImage.lg.url}
-                type="video/mp4"
-              />
-            )}
-            {preview.ogg && (
-              <source
-                src={preview.ogg.url}
-                poster={previewImage.lg.url}
-                type="video/ogg"
-              />
-            )}
+            {preview.mp4 && <source src={preview.mp4.url} type="video/mp4" />}
+            {preview.ogg && <source src={preview.ogg.url} type="video/ogg" />}
             {preview.webm && (
-              <source
-                src={preview.webm.url}
-                poster={previewImage.lg.url}
-                type="video/webm"
-              />
+              <source src={preview.webm.url} type="video/webm" />
             )}
           </video>
         )}
