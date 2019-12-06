@@ -10,10 +10,10 @@
     width: 448px;
     height: 264px;
     margin: 0 16px 120px 16px;
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
       height: 350px;
     }
-    @media(min-width: 1200px) {
+    @media (min-width: 1200px) {
       height: 264px;
     }
     &:hover {
@@ -32,13 +32,12 @@
       height: 264px;
       object-fit: cover;
 
-      @media(min-width: 768px) {
+      @media (min-width: 768px) {
         height: 350px;
       }
-      @media(min-width: 1200px) {
+      @media (min-width: 1200px) {
         height: 264px;
       }
-
     }
 
     &_play-btn {
@@ -63,10 +62,10 @@
       height: 264px;
       transition: $transition;
 
-      @media(min-width: 768px) {
+      @media (min-width: 768px) {
         height: 350px;
       }
-      @media(min-width: 1200px) {
+      @media (min-width: 1200px) {
         height: 264px;
       }
       &:hover {
@@ -80,12 +79,12 @@
 
     &_youtube {
       height: 100%;
-      iframe{
+      iframe {
         height: 264px;
-        @media(min-width: 768px) {
+        @media (min-width: 768px) {
           height: 350px;
         }
-        @media(min-width: 1200px) {
+        @media (min-width: 1200px) {
           height: 264px;
         }
       }
@@ -107,7 +106,7 @@
 
     &_card-wrapper {
       width: 100%;
-      height: 176px;
+      height: 264px;
       margin: 0 0 88px 0;
     }
 
@@ -116,11 +115,11 @@
     }
 
     &_card_preview {
-      height: 176px;
+      height: 264px;
     }
 
     &_card-overlay {
-      height: 176px;
+      height: 264px;
     }
   }
 }
