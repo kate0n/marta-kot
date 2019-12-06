@@ -63,10 +63,10 @@ const IndexPage = props => {
   return (
     <>
       <Layout isVisibleConcert={getConcerts && getConcerts.visibly} bg={getHomePage && getHomePage.background}>
-        <Footer
-          bannerVisibly={getHomePage && getHomePage.mainBanner.visibly}
-          {...getHomePage} />
       </Layout>
+      <Footer
+        bannerVisibly={getHomePage && getHomePage.mainBanner.visibly}
+        {...getHomePage} />
       {
         getHomePage && getHomePage.mainBanner.visibly && (
           <Banner
