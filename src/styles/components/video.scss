@@ -14,7 +14,7 @@
       min-height: 350px;
     }
     @media (min-width: 1200px) {
-      min-height: 264px;
+      height: 264px;
     }
     &:hover {
       color: $main;
@@ -33,10 +33,10 @@
       object-fit: cover;
 
       @media (min-width: 768px) {
-        min-height: 350px;
+        height: 350px;
       }
       @media (min-width: 1200px) {
-        min-height: 264px;
+        height: 264px;
       }
     }
 
@@ -63,10 +63,10 @@
       transition: $transition;
 
       @media (min-width: 768px) {
-        min-height: 350px;
+        height: 350px;
       }
       @media (min-width: 1200px) {
-        min-height: 264px;
+        height: 264px;
       }
       &:hover {
         background: linear-gradient(
@@ -82,10 +82,10 @@
       iframe {
         height: 264px;
         @media (min-width: 768px) {
-          min-height: 350px;
+          height: 350px;
         }
         @media (min-width: 1200px) {
-          min-height: 264px;
+          height: 264px;
         }
       }
     }
@@ -106,7 +106,7 @@
 
     &_card-wrapper {
       width: 100%;
-      min-height: 264px;
+      height: 264px;
       margin: 0 0 88px 0;
     }
 
@@ -115,11 +115,11 @@
     }
 
     &_card_preview {
-      min-height: 264px;
+      height: 264px;
     }
 
     &_card-overlay {
-      min-height: 264px;
+      height: 264px;
     }
   }
 }
