@@ -43,7 +43,7 @@ const SigleCard = ({
           </div>
         </div>
         {/* track name */}
-        <p className="links">{name}</p>
+        <h4 className="title_h4">{name}</h4>
       </div>
     )
   )
