@@ -91,7 +91,7 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
         )}
       </div>
 
-      <h4 className="title_h4">{name}</h4>
+      <h4 className="links">{name}</h4>
     </div>
   )
 }
