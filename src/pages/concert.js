@@ -81,7 +81,9 @@ const ConcertPage = props => {
                   }}
                 >
                   <div className="concerts_item">
-                    <p className="links">{concert.address}</p>
+                    <p style={{
+                      cursor: concert.url ? "pointer" : "default",
+                    }} className="links">{concert.address}</p>
                     <h2 className="title_h2">{concert.city}</h2>
                     <h2 className="title_h2 title_h2--stroke">
                       {dateToString(new Date(concert.date))}
