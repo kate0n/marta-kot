@@ -40,7 +40,7 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
     }
   }
 
-  const stopMusicPlayoer = () => {
+  const stopMusicPlayer = () => {
     if (isTrackPlaying) {
       pauseTrack()
     } else if (isSinglePlaying) {
@@ -80,7 +80,7 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
             <YouTube
               videoId={getVideoId(url)}
               opts={opts}
-              onPlay={stopMusicPlayoer}
+              onPlay={stopMusicPlayer}
               onReady={onReady}
               onEnd={stopYouTubeVideo}
               containerClassName="video_card_youtube"
