@@ -76,6 +76,9 @@ const ConcertPage = props => {
                   target="_blank"
                   rel="noopener noreferrer"
                   key={index}
+                  style={{
+                    cursor: concert.url ? "pointer" : "default",
+                  }}
                 >
                   <div className="concerts_item">
                     <p className="links">{concert.address}</p>
