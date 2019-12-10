@@ -71,7 +71,8 @@ const ConcertPage = props => {
               .map((concert, index) => (
                 <a
                   aria-label="concert link"
-                  href={concert.url}
+                  href={concert.url || ""}
+                  onClick={(event) => concert.url ? null : event.preventDefault()}
                   target="_blank"
                   rel="noopener noreferrer"
                   key={index}
@@ -97,6 +98,7 @@ export const pageQuery = graphql`
     {
         marta {
             getHomePage {
+                updateAt
                 socialList {
                     name
                     url
@@ -109,6 +111,7 @@ export const pageQuery = graphql`
                 }
             }
             getConcerts {
+                updateAt
                 background {
                     xs {
                         url
