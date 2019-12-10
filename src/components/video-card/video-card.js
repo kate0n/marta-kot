@@ -1,8 +1,16 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useContext } from "react"
 import YouTube from "react-youtube"
 import IconVideoPlay from "../../images/video-play-btn.svg"
+import MusicPlayerContext from "../../context/MusicPlayerContext"
 
 const VideoCard = ({ previewImage, preview, name, url }) => {
+  const {
+    isTrackPlaying,
+    isSinglePlaying,
+    pauseTrack,
+    pauseSingle,
+  } = useContext(MusicPlayerContext)
+
   const getVideoId = url => {
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/
     const match = url.match(regExp)
@@ -25,6 +33,19 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
 
   const playYouTubeVideo = () => {
     setYouTube({ ...youTube, isPlaying: true })
+    if (isTrackPlaying) {
+      pauseTrack()
+    } else if (isSinglePlaying) {
+      pauseSingle()
+    }
+  }
+
+  const stopMusicPlayoer = () => {
+    if (isTrackPlaying) {
+      pauseTrack()
+    } else if (isSinglePlaying) {
+      pauseSingle()
+    }
   }
 
   const playPreview = () => {
@@ -59,6 +80,7 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
             <YouTube
               videoId={getVideoId(url)}
               opts={opts}
+              onPlay={stopMusicPlayoer}
               onReady={onReady}
               onEnd={stopYouTubeVideo}
               containerClassName="video_card_youtube"
