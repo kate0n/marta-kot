@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from "react"
 import YouTube from "react-youtube"
 import IconVideoPlay from "../../images/video-play-btn.svg"
 import MusicPlayerContext from "../../context/MusicPlayerContext"
+import delve from "dlv"
 
 const VideoCard = ({ previewImage, preview, name, url }) => {
   const {
@@ -93,21 +94,27 @@ const VideoCard = ({ previewImage, preview, name, url }) => {
             preload="auto"
             loop="loop"
             className="video_card_preview"
-            poster={previewImage.lg && previewImage.lg.url}
+            poster={delve(previewImage, ["lg", "url"]) ? previewImage.lg.url : ""}
             muted
           >
-            {preview.mp4 && <source src={preview.mp4.url} type="video/mp4" />}
-            {preview.ogg && <source src={preview.ogg.url} type="video/ogg" />}
-            {preview.webm && (
-              <source src={preview.webm.url} type="video/webm" />
-            )}
+            {
+              delve(preview, ["mp4", "url"]) && (<source src={preview.mp4.url} type="video/mp4"/>)
+            }
+            {
+              delve(preview, ["ogg", "url"]) && (<source src={preview.ogg.url} type="video/ogg"/>)
+            }
+            {
+              delve(preview, ["webm", "url"]) && (
+                <source src={preview.webm.url} type="video/webm"/>
+              )
+            }
           </video>
         )}
         {/* overlay, play btn */}
         {!youTube.isPlaying && (
           <div className="video_card-overlay" onClick={playYouTubeVideo}>
             <button className="video_card_play-btn">
-              <img src={IconVideoPlay} alt="" />
+              <img src={IconVideoPlay} alt=""/>
             </button>
           </div>
         )}
