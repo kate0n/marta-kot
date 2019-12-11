@@ -66,7 +66,7 @@ const clientQuery = gql`
                 }
                 name
                 url
-            }╥
+            }
         }
     }
 `
